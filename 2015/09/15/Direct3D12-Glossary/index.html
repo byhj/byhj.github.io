@@ -1,0 +1,681 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="追忆似水年华" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="These terms are distinctive of Direct3D 12.
+
+binding  The process of attaching memory to the graphics pipeline. Resource binding, for example, involves the binding of a resource such as a texture to t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Direct3D12-Glossary">
+<meta property="og:url" content="http://byhj.github.io/2015/09/15/Direct3D12-Glossary/index.html">
+<meta property="og:site_name" content="byhj Blog">
+<meta property="og:description" content="These terms are distinctive of Direct3D 12.
+
+binding  The process of attaching memory to the graphics pipeline. Resource binding, for example, involves the binding of a resource such as a texture to t">
+<meta property="og:updated_time" content="2015-09-15T15:03:24.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Direct3D12-Glossary">
+<meta name="twitter:description" content="These terms are distinctive of Direct3D 12.
+
+binding  The process of attaching memory to the graphics pipeline. Resource binding, for example, involves the binding of a resource such as a texture to t">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Direct3D12-Glossary | byhj Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">byhj Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Direct3D12-Glossary
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-15T10:02:30+08:00" content="2015-09-15">
+            2015-09-15
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>These terms are distinctive of Direct3D 12.</p>
+<hr>
+<h1 id="binding">binding</h1><p>  The process of attaching memory to the graphics pipeline. Resource binding, for example, involves the binding of a resource such as a texture to the pipeline, for use in rendering an object.</p>
+<hr>
+<h1 id="buffer">buffer</h1><p>  A type of D3D resource that is synonymous with a contiguous memory allocation.</p>
+<hr>
+<h1 id="bundle">bundle</h1><p>  A command buffer that the graphics processing unit (GPU) can execute only directly via a direct command list. A bundle inherits all GPU state (except for the currently set pipeline state object and primitive topology).</p>
+<hr>
+<h1 id="command_allocator">command allocator</h1><p>  The underlying memory allocations in which GPU commands are stored. The command allocator object applies to both direct command lists and bundles.</p>
+<hr>
+<h1 id="command_list">command list</h1><p>  A command list corresponds to a set of commands which the GPU executes. These include commands such as to set state, draw, clear, and copy. The D3D12 command list interface is significantly different than the D3D11 command list interface. The D3D12 command list interface contains APIs similar to the D3D11 device context rendering APIs.</p>
+<p>  A D3D12 command list does not map or unmap resources, change tile mappings, resize tile pools, get query data, nor does it ever implicitly submit commands to the GPU for execution.</p>
+<p>  Unlike D3D11 deferred contexts, D3D12 command lists only support two levels of indirection. A direct command list corresponds to a command buffer which the GPU can execute. A bundle can be executed only directly via a direct command list.</p>
+<p>  A direct command list does not inherit any GPU state. A bundle inherits all GPU state (except for the currently set pipeline state object and primitive topology).</p>
+<p>  Memory for a command list is set by the command allocator. The purpose of command lists is that they can be submitted to a GPU as a single rendering request.</p>
+<hr>
+<h1 id="command_queue">command queue</h1><p>  A queue of command lists that the GPU executes in succession. Applications must explicitly submit command lists to a command queue for execution. Typically there are three command queues: 3D graphics, compute and copy, corresponding to the 3D graphics pipeline, the compute engine, and one or more copy engines, on the GPU.</p>
+<hr>
+<h1 id="conservative_rasterization">conservative rasterization</h1><p>  Conservative rasterization is a mode of operation for the rasterizer stage of the Direct3D graphics pipeline. It disables the standard sample-based rasterization, and will instead rasterize a pixel that is covered by any amount by a primitive. One important distinction is that, while any coverage at all produces a rasterized pixel, that coverage cannot be characterized by the hardware, so coverage always appears binary to a pixel shader: either fully covered or not covered. It is left to the pixel shader code to analytically determine the actual coverage.</p>
+<p>  Conservative rasterization can help with such problems as collision and hit detection, binning, and occlusion culling, where the color of a pixel is more certain and edge cases can be eliminated. See Conservative Rasterization.</p>
+<hr>
+<h1 id="Constant_Buffer_View_(CBV)">Constant Buffer View (CBV)</h1><p>  Constant buffers contain shader constant data, such as a camera view, projection matrices, and world matrices. A “constant buffer view” is the format-specific view of the buffer as seen by the graphics pipeline.</p>
+<hr>
+<h1 id="default_heap">default heap</h1><p>  A user-mode heap that is focused on supporting persistent GPU resource types, including GPU-written resources.</p>
+<hr>
+<h1 id="descriptor">descriptor</h1><p>  Descriptors are the primary unit of binding for a single resource in D3D12. A descriptor is a relatively small block of data that fully describes an object to the GPU, in a GPU specific format. There are many different types of descriptors: Shader Resource Views (SRVs), Unordered Access Views (UAVs), Constant Buffer Views (CBVs), and Samplers are a few examples.</p>
+<hr>
+<h1 id="descriptor_heap">descriptor heap</h1><p>  A descriptor heap is a collection of contiguous allocations of descriptors, one allocation for every descriptor. The primary point of a descriptor heap is to encompass the bulk of memory allocation required for storing the descriptor specifications of object types that shaders reference for as large of a window of rendering as possible (ideally an entire frame of rendering or more).</p>
+<hr>
+<h1 id="descriptor_table">descriptor table</h1><p>  A descriptor table is logically an array of descriptors. Each descriptor table stores descriptors of one or more types, including SRVs, UAVe, CBVs, and Samplers. A descriptor table is not an allocation of memory, it is simply an offset and length into a descriptor heap.</p>
+<hr>
+<h1 id="direct_command_list">direct command list</h1><p>  A command buffer that the GPU can execute. A direct command list doesn’t inherit any GPU state.</p>
+<hr>
+<h1 id="fence">fence</h1><p>  A mechanism to synchronize the GPU and CPU. Both the GPU and CPU can be instructed to wait at a fence, waiting in effect for the other processor to catch up. See Synchronization and Multi-Engine.</p>
+<hr>
+<h1 id="hazard,_hazard_tracking">hazard, hazard tracking</h1><p>  A hazard occurs when a resource has been used for one purpose, and the app intends to reuse it for another purpose. In order to use the resource again, intermediate caches will need to be flushed or invalidated, compression requirements will need to be consistent with the second use, and the resource should be in the required state to avoid reading the resource after it has been written to and invalidated for the intended purpose.</p>
+<p>  The process of maintaining resources and avoiding these sync issues is known as hazard tracking. If there is no hazard tracking by the driver, then the app is responsible for this. In most earlier versions of DirectX, hazard tracking was handled by the driver. To improve performance, methods without hazard tracking are available in DirectX 12.</p>
+<hr>
+<h1 id="High-Level_Shader_Language_(HLSL)">High-Level Shader Language (HLSL)</h1><p>  A computer language, similar but distinct in many ways from C, that is used to write shader code. Vertex, pixel, geometry, compute, domain, and hull shaders are all written using HLSL. A compiler converts the HLSL source into a binary format for the GPU to consume.</p>
+<hr>
+<h1 id="multiengine">multiengine</h1><p>  The different instances and types of engines in a single GPU. The types of engines include: graphics, compute, and copy.</p>
+<hr>
+<h1 id="MultiGPU">MultiGPU</h1><p>  A hardware configuration where there is more than on graphics adapter. The separate adapters are sometimes referred to as nodes. Having multiple GPUs can make the task of synchronizing them with the CPU, and each other, considerably more complex than with a single GPU.</p>
+<hr>
+<h1 id="Pipeline_State_object_(PSO)">Pipeline State object (PSO)</h1><p>  A significant portion of the state of the GPU. This state includes all currently set shaders and certain fixed-function state objects. The only way to change states contained within the pipeline object is to change the currently bound pipeline object.</p>
+<hr>
+<h1 id="predication">predication</h1><p>  Predication is a feature that enables the GPU rather than the CPU to determine to not draw, copy or dispatch an object. For example, if a bounding box of an object is totally occluded by another object or perspective has reduced the object to less than the size of a pixel, there may be no point in attempting to draw the hidden object at all. See Predication.</p>
+<hr>
+<h1 id="Rasterizer_Order_View_(ROV)">Rasterizer Order View (ROV)</h1><p>  Standard graphics pipelines may have trouble correctly compositing together multiple textures that contain transparency. Objects such as wire fences, smoke, fire, vegetation, and colored glass use transparency to get the desired effect. Problems arise when multiple textures that contain transparency are in line with each other (smoke in front of a fence in front of a glass building containing vegetation, as an example). Rasterizer ordered views (ROVs) enable the underlying Order Independent Transparency (OIT) algorithms to use features of the hardware to try to resolve the transparency order correctly. Transparency is handled by the pixel shader.</p>
+<p>  Rasterizer Ordered Views (ROVs) allow pixel shader code to mark Unordered Access View (UAV) bindings with a declaration that alters the normal requirements for the order of graphics pipeline results for UAVs.</p>
+<hr>
+<h1 id="readback_heap">readback heap</h1><p>  A user-mode heap that is focused on data transfer from the GPU back to the CPU.</p>
+<hr>
+<h1 id="resource">resource</h1><p>  An entity that provides data to the pipeline and defines what is rendered during your scene. Resources can be loaded from your game media or created dynamically at run time. Typically, resources include texture data, vertex data, and shader data. Most Direct3D applications create and destroy resources extensively throughout their lifespan.</p>
+<hr>
+<h1 id="resource_barrier">resource barrier</h1><p>  A resource barrier notifies the driver that synchronization of multiple accesses to a single resource may be required, for example, reading and writing to the same texture.</p>
+<hr>
+<h1 id="resource_binding">resource binding</h1><p>  Resource binding is the process of linking resources (textures, vertex buffers, index buffers, and so on), to the graphics pipeline, enabling the shaders of the pipeline to process the correct resource.</p>
+<hr>
+<h1 id="resource_heaps">resource heaps</h1><p>  Resource heaps is a generic term for the heaps that are memory buffers set aside to hold resources as they are transferred to and from the GPU. A transfer to the GPU requires an Upload Heap, from the GPU to the CPU requires a Readback Heap, and a persistent heap for the GPU to maintain over multiple rendering frames is called a Default Heap.</p>
+<hr>
+<h1 id="root_signature">root signature</h1><p>  Root signatures define all the resources that are to be bound to the graphics, or compute, pipelines. A root signature is configured by the app and links command lists to the resources that the shaders require Typically, there is one graphics and one compute root signature per app.</p>
+<hr>
+<h1 id="sampler">sampler</h1><p>  A sampler is code that reads from a texture.</p>
+<hr>
+<h1 id="Shader_Resource_View_(SRV)">Shader Resource View (SRV)</h1><p>  A format-specific way to look at the data in a shader resource, such as a texture.</p>
+<hr>
+<h1 id="static_heap">static heap</h1><p>  A user-mode heap that is focused on multiple GPU-read-only resources that are typically used at the same time and are not changed frequently.</p>
+<hr>
+<h1 id="swap_chain">swap chain</h1><p>  Swap chains control the back buffer rotation, forming the basis of graphics animation. Swap chains are handled by the low level API set DXGI (see DXGI Overview).</p>
+<hr>
+<h1 id="swizzle">swizzle</h1><p>  A technique of locating multidimensional data in memory such that data of nearby dimensionality tends to have nearby addresses. In particular, all the data for one row is not located contiguously before the data for the next row. A “Parameterized Swizzle” describes a standardized way to describe swizzle patterns.</p>
+<hr>
+<h1 id="texture">texture</h1><p>  A type of D3D resource that is multi-dimensional and has a memory layout that is optimized for multi-dimensional access from the GPU. Textures often contain the raw image required to render onto a surface, before lighting and blending takes place, but can contain other forms of data such as color gradients and reference colors. Direct3D 12 supports one, two, and three dimensional textures.</p>
+<hr>
+<h1 id="tile">tile</h1><p>  A page of video memory, similar to a CPU/System page of memory. The tile notation helps to distinguish the GPU virtual memory subsystem from the CPU virtual memory subsystem. GPUs provide similar virtual memory capabilities as system virtual memory. Some GPUs have shared virtual memory capabilities, which allow for the sharing of some pages of the virtual memory subsystem with both the CPU and GPU.</p>
+<hr>
+<h1 id="tiled_resources">tiled resources</h1><p>  Tiled resources are needed so less GPU memory is wasted storing regions of surfaces that the application knows will not be accessed, and the hardware can understand how to filter across adjacent tiles. Tiled resources are large logical resources, but requiring small amounts of physical memory.</p>
+<hr>
+<h1 id="Unordered_Access_View_(UAV)">Unordered Access View (UAV)</h1><p>  An unordered access view into a resource (which includes buffers, textures, and texture arrays - without multi-sampling), allows temporally unordered read/write access from multiple threads. This means that this resource type can be read/written simultaneously by multiple threads without generating memory conflicts.</p>
+<hr>
+<h1 id="upload_heap">upload heap</h1><p>  A user-mode heap that is focused on data transfer from the CPU to the GPU.</p>
+<hr>
+<h1 id="user-mode_heap">user-mode heap</h1><p>  A collection of large, contiguous memory allocations that are recycled without any kernel component’s awareness: the allocation and destruction methods do not call kernel allocation and destruction methods during steady state. Upload, Readback, and Default heaps are variants of user mode heaps.</p>
+<hr>
+<h1 id="volume_tiled_resources">volume tiled resources</h1><p>  Three-dimensional tiled resources.</p>
+<hr>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/01/DirectX11-Framework/" rel="next">DirectX11-Framework</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/byhj.png" alt="byhj" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">byhj</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">追忆似水年华</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/byhj" target="_blank">github</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#binding"><span class="nav-number">1.</span> <span class="nav-text">binding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#buffer"><span class="nav-number">2.</span> <span class="nav-text">buffer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bundle"><span class="nav-number">3.</span> <span class="nav-text">bundle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#command_allocator"><span class="nav-number">4.</span> <span class="nav-text">command allocator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#command_list"><span class="nav-number">5.</span> <span class="nav-text">command list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#command_queue"><span class="nav-number">6.</span> <span class="nav-text">command queue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#conservative_rasterization"><span class="nav-number">7.</span> <span class="nav-text">conservative rasterization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Constant_Buffer_View_(CBV)"><span class="nav-number">8.</span> <span class="nav-text">Constant Buffer View (CBV)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#default_heap"><span class="nav-number">9.</span> <span class="nav-text">default heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#descriptor"><span class="nav-number">10.</span> <span class="nav-text">descriptor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#descriptor_heap"><span class="nav-number">11.</span> <span class="nav-text">descriptor heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#descriptor_table"><span class="nav-number">12.</span> <span class="nav-text">descriptor table</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#direct_command_list"><span class="nav-number">13.</span> <span class="nav-text">direct command list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fence"><span class="nav-number">14.</span> <span class="nav-text">fence</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hazard,_hazard_tracking"><span class="nav-number">15.</span> <span class="nav-text">hazard, hazard tracking</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#High-Level_Shader_Language_(HLSL)"><span class="nav-number">16.</span> <span class="nav-text">High-Level Shader Language (HLSL)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#multiengine"><span class="nav-number">17.</span> <span class="nav-text">multiengine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MultiGPU"><span class="nav-number">18.</span> <span class="nav-text">MultiGPU</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pipeline_State_object_(PSO)"><span class="nav-number">19.</span> <span class="nav-text">Pipeline State object (PSO)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#predication"><span class="nav-number">20.</span> <span class="nav-text">predication</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rasterizer_Order_View_(ROV)"><span class="nav-number">21.</span> <span class="nav-text">Rasterizer Order View (ROV)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#readback_heap"><span class="nav-number">22.</span> <span class="nav-text">readback heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resource"><span class="nav-number">23.</span> <span class="nav-text">resource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resource_barrier"><span class="nav-number">24.</span> <span class="nav-text">resource barrier</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resource_binding"><span class="nav-number">25.</span> <span class="nav-text">resource binding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resource_heaps"><span class="nav-number">26.</span> <span class="nav-text">resource heaps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#root_signature"><span class="nav-number">27.</span> <span class="nav-text">root signature</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sampler"><span class="nav-number">28.</span> <span class="nav-text">sampler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shader_Resource_View_(SRV)"><span class="nav-number">29.</span> <span class="nav-text">Shader Resource View (SRV)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#static_heap"><span class="nav-number">30.</span> <span class="nav-text">static heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swap_chain"><span class="nav-number">31.</span> <span class="nav-text">swap chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swizzle"><span class="nav-number">32.</span> <span class="nav-text">swizzle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#texture"><span class="nav-number">33.</span> <span class="nav-text">texture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tile"><span class="nav-number">34.</span> <span class="nav-text">tile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tiled_resources"><span class="nav-number">35.</span> <span class="nav-text">tiled resources</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unordered_Access_View_(UAV)"><span class="nav-number">36.</span> <span class="nav-text">Unordered Access View (UAV)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#upload_heap"><span class="nav-number">37.</span> <span class="nav-text">upload heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#user-mode_heap"><span class="nav-number">38.</span> <span class="nav-text">user-mode heap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volume_tiled_resources"><span class="nav-number">39.</span> <span class="nav-text">volume tiled resources</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">byhj</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
