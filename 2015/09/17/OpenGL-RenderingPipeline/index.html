@@ -37,16 +37,46 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="追忆似水年华">
+<meta name="description" content="OpenGL渲染流水线
+
+
+
+
+Vertex SpecificationVertex RenderingPrimitive
+Vertex ProcessingVertex ShaderTessellationGeometry
+Vertex pos-processingTransform FeedbackClipping
+Primitive assemblyFace Culling
+Rasteriz">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL-Rendering Pipeline">
 <meta property="og:url" content="http://byhj.github.io/2015/09/17/OpenGL-RenderingPipeline/index.html">
 <meta property="og:site_name" content="byhj Blog">
-<meta property="og:description" content="追忆似水年华">
-<meta property="og:updated_time" content="2015-09-17T14:14:39.920Z">
+<meta property="og:description" content="OpenGL渲染流水线
+
+
+
+
+Vertex SpecificationVertex RenderingPrimitive
+Vertex ProcessingVertex ShaderTessellationGeometry
+Vertex pos-processingTransform FeedbackClipping
+Primitive assemblyFace Culling
+Rasteriz">
+<meta property="og:image" content="http://7xlvtd.com1.z0.glb.clouddn.com/OpenGLRenderingPipeline-1.png">
+<meta property="og:image" content="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/27893569.jpg">
+<meta property="og:image" content="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/29976945.jpg">
+<meta property="og:updated_time" content="2015-09-21T10:40:52.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL-Rendering Pipeline">
-<meta name="twitter:description" content="追忆似水年华">
+<meta name="twitter:description" content="OpenGL渲染流水线
+
+
+
+
+Vertex SpecificationVertex RenderingPrimitive
+Vertex ProcessingVertex ShaderTessellationGeometry
+Vertex pos-processingTransform FeedbackClipping
+Primitive assemblyFace Culling
+Rasteriz">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -199,7 +229,19 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><p>OpenGL渲染流水线</p>
+<p><img src="http://7xlvtd.com1.z0.glb.clouddn.com/OpenGLRenderingPipeline-1.png" alt="RenderingPipeline1"></p>
+<p><img src="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/27893569.jpg" alt="RenderingPipeline2"></p>
+<p><img src="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/29976945.jpg" alt="RenderingPipelineMap"></p>
+<hr>
+<h1 id="Vertex_Specification">Vertex Specification</h1><h2 id="Vertex_Rendering">Vertex Rendering</h2><h2 id="Primitive">Primitive</h2><hr>
+<h1 id="Vertex_Processing">Vertex Processing</h1><h2 id="Vertex_Shader">Vertex Shader</h2><h2 id="Tessellation">Tessellation</h2><h2 id="Geometry">Geometry</h2><hr>
+<h1 id="Vertex_pos-processing">Vertex pos-processing</h1><h2 id="Transform_Feedback">Transform Feedback</h2><h2 id="Clipping">Clipping</h2><hr>
+<h1 id="Primitive_assembly">Primitive assembly</h1><h2 id="Face_Culling">Face Culling</h2><hr>
+<h1 id="Rasterization">Rasterization</h1><hr>
+<h1 id="Fragment_Processing">Fragment Processing</h1><hr>
+<h1 id="Per-Sample_Operations">Per-Sample Operations</h1><h2 id="Scrissor_Test">Scrissor Test</h2><h2 id="Stencil_Test">Stencil Test</h2><h2 id="Depth_Test">Depth Test</h2><h2 id="Blending">Blending</h2><h2 id="Logical_Operations">Logical Operations</h2><h2 id="Masking_operations">Masking operations</h2><hr>
+</span>
       
     </div>
 
@@ -215,6 +257,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/18/DirectX-Pipeline/" rel="prev">DirectX-Pipeline</a>
             
           </div>
 
@@ -282,7 +326,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -330,7 +374,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vertex_Specification"><span class="nav-number">1.</span> <span class="nav-text">Vertex Specification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex_Rendering"><span class="nav-number">1.1.</span> <span class="nav-text">Vertex Rendering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive"><span class="nav-number">1.2.</span> <span class="nav-text">Primitive</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vertex_Processing"><span class="nav-number">2.</span> <span class="nav-text">Vertex Processing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex_Shader"><span class="nav-number">2.1.</span> <span class="nav-text">Vertex Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tessellation"><span class="nav-number">2.2.</span> <span class="nav-text">Tessellation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geometry"><span class="nav-number">2.3.</span> <span class="nav-text">Geometry</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vertex_pos-processing"><span class="nav-number">3.</span> <span class="nav-text">Vertex pos-processing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transform_Feedback"><span class="nav-number">3.1.</span> <span class="nav-text">Transform Feedback</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clipping"><span class="nav-number">3.2.</span> <span class="nav-text">Clipping</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Primitive_assembly"><span class="nav-number">4.</span> <span class="nav-text">Primitive assembly</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Face_Culling"><span class="nav-number">4.1.</span> <span class="nav-text">Face Culling</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rasterization"><span class="nav-number">5.</span> <span class="nav-text">Rasterization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment_Processing"><span class="nav-number">6.</span> <span class="nav-text">Fragment Processing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Per-Sample_Operations"><span class="nav-number">7.</span> <span class="nav-text">Per-Sample Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrissor_Test"><span class="nav-number">7.1.</span> <span class="nav-text">Scrissor Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stencil_Test"><span class="nav-number">7.2.</span> <span class="nav-text">Stencil Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Depth_Test"><span class="nav-number">7.3.</span> <span class="nav-text">Depth Test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blending"><span class="nav-number">7.4.</span> <span class="nav-text">Blending</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical_Operations"><span class="nav-number">7.5.</span> <span class="nav-text">Logical Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Masking_operations"><span class="nav-number">7.6.</span> <span class="nav-text">Masking operations</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

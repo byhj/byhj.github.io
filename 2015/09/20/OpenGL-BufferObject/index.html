@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="DirectX," />
+  <meta name="keywords" content="OpenGL," />
 
 
 
@@ -37,25 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
+<meta name="description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
+CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DirectX11-Framework">
-<meta property="og:url" content="http://byhj.github.io/2015/09/01/DirectX11-Framework/index.html">
+<meta property="og:title" content="OpenGL-BufferObject">
+<meta property="og:url" content="http://byhj.github.io/2015/09/20/OpenGL-BufferObject/index.html">
 <meta property="og:site_name" content="byhj Blog">
-<meta property="og:description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
-<meta property="og:updated_time" content="2015-09-17T14:16:04.807Z">
+<meta property="og:description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
+CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
+<meta property="og:updated_time" content="2015-09-21T10:40:52.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DirectX11-Framework">
-<meta name="twitter:description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
+<meta name="twitter:title" content="OpenGL-BufferObject">
+<meta name="twitter:description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
+CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +59,7 @@ Shutdownd">
   };
 </script>
 
-  <title> DirectX11-Framework | byhj Blog </title>
+  <title> OpenGL-BufferObject | byhj Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +174,7 @@ Shutdownd">
           
           
             
-              DirectX11-Framework
+              OpenGL-BufferObject
             
           
         </h1>
@@ -189,8 +183,8 @@ Shutdownd">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-01T08:50:17+08:00" content="2015-09-01">
-            2015-09-01
+          <time itemprop="dateCreated" datetime="2015-09-20T22:40:46+08:00" content="2015-09-20">
+            2015-09-20
           </time>
         </span>
 
@@ -208,10 +202,49 @@ Shutdownd">
       
 
       
-        <span itemprop="articleBody"><h1 id="Framework">Framework</h1><h2 id="DrectX11_Framework_分为">DrectX11 Framework 分为</h2><h2 id="Init">Init</h2><h3 id="Init_Window">Init Window</h3><h3 id="Init_D3D">Init D3D</h3><hr>
-<h2 id="Update">Update</h2><hr>
-<h2 id="Render">Render</h2><hr>
-<h2 id="Shutdownd">Shutdownd</h2></span>
+        <span itemprop="articleBody"><h1 id="Introdution">Introdution</h1><p>Buffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。</p>
+<h1 id="Creation">Creation</h1><p>Buffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer Objects, 使用glDeleteBuffers删除它们。这些都是大多数OpenGL Object使用的标准生成和创建Objects的模式。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glBindBuffer</span><span class="params">(<span class="keyword">enum</span> <span class="keyword">target</span>, uint bufferName)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>Buffer Objects存储的是任意大小的线性内存数组，这些内存在使用前需要被分配，有两种为Buffer Objects 分配内存的方法：可变或者不可变。为buffer分配不可变内存会改变你跟Buffer Object交互的方式。</p>
+<h2 id="Immutable_Storage">Immutable Storage</h2><p>Buffer Objects被分配为不可变方式时，你不能为这个Buffer重新分配内存。使用explicit invalidation<br>command 或者mapping the buffer.<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glBufferStorage</span><span class="params">(GLenum <span class="keyword">target</span>, GLsizeiptr size, <span class="keyword">const</span> GLvoid * data, GLbitfield flags)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Immutable_access_methods">Immutable access methods</h3><ul>
+<li><p>Writing to the buffer with any rendering pipeline process. These include Transform Feedback, Image Load Store, Atomic Counter, and Shader Storage Buffer Object. Basically, anything that is part of the rendering pipeline that can write to a buffer will always work.</p>
+</li>
+<li><p>Clearing the buffer. Because this only transfers a few bytes of data, it is not considered “client-side” modification.</p>
+</li>
+<li><p>Copying the buffer. This copies from one buffer to another, so it all happens “server-side”.<br>Invalidating the buffer. This only wipes out the contents of the buffer, so it is considered “server-side”.</p>
+</li>
+<li><p>Asynchronous pixel transfers into the buffer. This sets the data in a buffer, but only through pure-OpenGL mechanisms.</p>
+</li>
+<li><p>Using glGetBufferSubData? to read a part of the buffer back to the CPU. This is not a “server-side” operation, but it’s always available regardless.</p>
+</li>
+</ul>
+<hr>
+<h1 id="Data_Specification">Data Specification</h1><p>因为glBufferData在分配内存空间同时更新数据，所以并不适合更新那些已经分配内存的数据（这对于immutable storage buffers是不可能的）</p>
+<p>我们可以使用下面的函数去更新buffer部分的数据：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glBufferSubData(<span class="keyword">enum</span> <span class="keyword">target</span>, intptr offset, sizeiptr size,  <span class="keyword">const</span> <span class="keyword">void</span> *data)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Clearing">Clearing</h2><p>Buffer objects 内存能够被部分或全部清除为指定的值。这些函数的工作原理与Pixel Transfer操作类似。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearBufferData</span><span class="params">(GLenum <span class="keyword">target</span>, GLenum internalformat, GLenum format, GLenum type, <span class="keyword">const</span> <span class="keyword">void</span> * data)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glClearBufferSubData</span><span class="params">(GLenum <span class="keyword">target</span>, GLenum internalformat, GLintptr offset,  GLsizeiptr size, GLenum format, GLenum type, <span class="keyword">const</span> <span class="keyword">void</span> * data)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>一个清除全部内容，一个清除部分内容</p>
+<h2 id="Copying">Copying</h2><p>一个buffer的数据可以被复制到另一个buffer，我们为源和目标buffer绑定不同的target, 一般使用GL_COPY_READ_BUFFER GL_COPY_WRITE_BUFFER作为相应的标志。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glCopyBufferSubData​(GLenum readtarget​, GLenum writetarget​, GLintptr readoffset​,GLintptr writeoffset​, GLsizeiptr <span class="keyword">size</span>​);</span><br></pre></td></tr></table></figure></p>
+<p>readtarget是绑定到source buffer上的buffer, 这是复制数据的提供者，writetarget 是绑定到destination buffer的buffer，是复制数据的接受者。</p>
+<h2 id="Mapping">Mapping</h2><p>对于一般情况来说，glBufferSubData是一种很好的更新数据方式。但有时取决你的使用方式，它的性能会减低。例如，你的算法生成了一些将要存储至buffer object的数据，你首先必须为这些数据分配暂时的存储区，然后使用glBufferSubData函数复制到OpenGL管理的内存。当你想要将数据写回时，glGetBufferSubData也许并不是你想要的方式， 虽然它看起来功能相像。如果你能得到一个指向buffer object存储区的指针，然后直接写入，这样的方式会非常好。<br>为了达到上面所说的效果，你必须对buffer进行映射以得到一个指向可读写buffer内存的指针。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void *glMapBufferRange​(GLenum target​, GLintptr <span class="command">offset</span>​, GLsizeiptr <span class="property">length</span>​,GLbitfield access​);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="General_use">General use</h1><ul>
+<li>GL_ARRAY_BUFFER</li>
+<li>GL_ELEMENT_ARRAY_BUFFER</li>
+<li>GL_COPY_READ_BUFFER &amp; GL_COPY_WRITE_BUFFER</li>
+<li>GL_PIXEL_UNPACK_BUFFER &amp; GL_PIXEL_PACK_BUFFER</li>
+<li>GL_QUERY_BUFFER</li>
+<li>GL_TEXTURE_BUFFER</li>
+<li>GL_TRANSFORM_FEEDBACK_BUFFER</li>
+<li>GL_UNIFORM_BUFFER</li>
+<li>GL_DRAW_INDIRECT_BUFFER</li>
+<li>GL_ATOMIC_COUNTER_BUFFER</li>
+<li>GL_DISPATCH_INDIRECT_BUFFER</li>
+<li>GL_SHADER_STORAGE_BUFFER</li>
+</ul>
+<p>##Binding indexed targets<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void glBindBufferRange​(GLenum <span class="type">target</span>​, GLuint <span class="built_in">index</span>​, GLuint buffer​,  GLintptr offset​, GLsizeiptr <span class="built_in">size</span>​ );</span><br></pre></td></tr></table></figure></p>
+<h2 id="Multibind_and_indexed_targets">Multibind and indexed targets</h2><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glBindBuffersRange​(GLenum <span class="keyword">target</span>​, GLuint first​, GLsizei count​, <span class="keyword">const</span> GLuint *buffers​, <span class="keyword">const</span> GLintptr *offsets​, <span class="keyword">const</span> GLintptr *sizes​);</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Reference">Reference</h1></span>
       
     </div>
 
@@ -219,7 +252,7 @@ Shutdownd">
       
         <div class="post-tags">
           
-            <a href="/tags/DirectX/" rel="tag">#DirectX</a>
+            <a href="/tags/OpenGL/" rel="tag">#OpenGL</a>
           
         </div>
       
@@ -228,11 +261,13 @@ Shutdownd">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/15/Direct3D12-Glossary/" rel="prev">Direct3D12-Glossary</a>
+              <a href="/2015/09/21/OpenGL-GLSL/" rel="prev">OpenGL-GLSL</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/18/DirectX-Pipeline/" rel="next">DirectX-Pipeline</a>
             
           </div>
         </div>
@@ -342,7 +377,7 @@ Shutdownd">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DrectX11_Framework_分为"><span class="nav-number">1.1.</span> <span class="nav-text">DrectX11 Framework 分为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Init"><span class="nav-number">1.2.</span> <span class="nav-text">Init</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Init_Window"><span class="nav-number">1.2.1.</span> <span class="nav-text">Init Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Init_D3D"><span class="nav-number">1.2.2.</span> <span class="nav-text">Init D3D</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">1.3.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Render"><span class="nav-number">1.4.</span> <span class="nav-text">Render</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shutdownd"><span class="nav-number">1.5.</span> <span class="nav-text">Shutdownd</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introdution"><span class="nav-number">1.</span> <span class="nav-text">Introdution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creation"><span class="nav-number">2.</span> <span class="nav-text">Creation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Immutable_Storage"><span class="nav-number">2.1.</span> <span class="nav-text">Immutable Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable_access_methods"><span class="nav-number">2.1.1.</span> <span class="nav-text">Immutable access methods</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data_Specification"><span class="nav-number">3.</span> <span class="nav-text">Data Specification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clearing"><span class="nav-number">3.1.</span> <span class="nav-text">Clearing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Copying"><span class="nav-number">3.2.</span> <span class="nav-text">Copying</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapping"><span class="nav-number">3.3.</span> <span class="nav-text">Mapping</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#General_use"><span class="nav-number">4.</span> <span class="nav-text">General use</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multibind_and_indexed_targets"><span class="nav-number">4.1.</span> <span class="nav-text">Multibind and indexed targets</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

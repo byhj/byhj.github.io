@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="追忆似水年华">
+<meta name="description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL-Objects">
 <meta property="og:url" content="http://byhj.github.io/2015/09/17/OpenGL-Objects/index.html">
 <meta property="og:site_name" content="byhj Blog">
-<meta property="og:description" content="追忆似水年华">
-<meta property="og:updated_time" content="2015-09-17T14:16:48.620Z">
+<meta property="og:description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
+<meta property="og:updated_time" content="2015-09-18T13:36:03.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL-Objects">
-<meta name="twitter:description" content="追忆似水年华">
+<meta name="twitter:description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -199,7 +199,115 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h1 id="Introduction">Introduction</h1><p> 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。<br>　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变OpenGL的状态，也可以查询某些状态量，或者使用当前的状态去Rendering。<br>　　 OpenGL有着多种类型的Ojbects, 它们存储着不同的状态，一组状态被封装在一个OpenGL Objects中，我们可以通过函数调用去改变它们。<br>　　 需要注意的是，OpenGL只是制定相应的规范，具体实现是由各个显卡驱动的厂商决定的，但实现也一般都会符合OpenGL制定的规范。</p>
+<hr>
+<h1 id="Creation_&amp;_Destruction">Creation &amp; Destruction</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void glGen<span class="keyword">*</span>(GLsizei n, GLuint <span class="keyword">*</span>objects)</span><br></pre></td></tr></table></figure>
+<p> 　　该函数创建n个对象名称(整数值引用)，返回指向这些objects的指针。在这一步，并不需要创建objects的状态数据。对于大多数object来说，在第一次绑定到上下文时，只包含其默认状态。在绑定前使用Objects是非法的。需要注意的是，Program Pipeline Ojbects和 Sampler Objects并不遵循这种运行机制。<br> 　　Object名称类型是GLuint, 它是一个数值型引用，用来识别一个object, 其中数值0在不同的Object中有着特定意义。<br>  （在OpenGL3.0之前，可以完全忽略上述的的分配函数,直接绑定认为合法的Ojbect名称）<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glDelete*(GLsizei n​, <span class="keyword">const</span> GLuint *objects​);</span><br></pre></td></tr></table></figure></p>
+<p> 　　当我们使用完Objects，可以使用上面函数进行删除。任何非法Object和Object 0会被忽略。Objects被删除后，它们的名字可以通过glGen*重新分配。</p>
+<h2 id="Deletion_unbinding">Deletion unbinding</h2><p>　　当绑定到当前context的object被删除时，会解除所有该object的绑定。<br>（Binding goes to the context; attachment is what you do when one object references another. Attachments are not severed due to this call.）<br>　　当一个object attached到container object，而该object绑定到context，删除会解除attach操作，如果该object没有绑定到context, attach操作不会被破坏。</p>
+<p>Some objects can be bound to the context in unusual ways. These ways include, but are not limited to:</p>
+<ul>
+<li>Buffer Objects bound to indexed targets via glBindBufferRange​ or its equivalents.</li>
+<li>Textures bound as images.</li>
+</ul>
+<h2 id="Deletion_orphaning">Deletion orphaning</h2><p>　　调用glDelete”并不保证马上消除object的内容和它的名字，如果一个object在删除后还被使用，那么当前object名字还是合法的。</p>
+<p>An object is “in use” if:</p>
+<ul>
+<li>It is bound to a context. This is not necessarily the current one, since deleting it will automatically unbind it from the context that caused the deletion. Though remember the caveat above about non-standard binding points for GL 4.4 and before.</li>
+<li>It is attached to a container object.</li>
+</ul>
+<hr>
+<h1 id="Usage">Usage</h1><p>　　由于Ojbects是一组状态，当要修改Ojbects前，需要把它绑定到OpenGL context。在绑定后，调用API函数可以对context中的状态进行改变，Objects的相应状态也会被改变。在绑定一个新生成的Object名称时，会为这个Object产生新的状态</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glBind*(GLenum <span class="keyword">target</span>​, GLuint object​);</span><br></pre></td></tr></table></figure>
+<h2 id="Object_zero">Object zero</h2><p> 　　数值0在一些OpenGL Objects中有着特定的含义。在大多数情况下，object 0就像是空指针NULL，是一种指示作用。对于一些Objects来说，0代表“default object”, Texture 和 Framebuffers都有着这样的概念。</p>
+<hr>
+<h1 id="Multibind">Multibind</h1><p>　　在OpenGL4.4引入了多重绑定概念，可以一次把不同类型的Objects绑定到各自的目标上，这种方式只是用来绑定后使用而不是修改。在多重绑定中，任何一个绑定错误都会导致整体的错误。</p>
+<hr>
+<h1 id="Sharing">Sharing</h1><p>　　你可以创建多个OpenGL contexts, 而当前GL context是线程相关的，一般来说它们各自是完成独立开来的，不会相互影响。但是context创建的时候，你可以使用另一个已经存在context的Objects. 需要注意，那些包含着其它Objects引用的Objects不能被共享，剩下的Objects可以进行context间共享，包括GLSL Objects和Sync Objects这种不遵循OpenGL Object机制的Objects.<br>　　一个context中Objects状态的改变并不是在另一个context马上可见，在这里有着特定的规则保证object状态数据的可见性。如果你使用线程，你需要自己做一些同步处理工作以保证在一个context使用那些会改变的objects之前，objects的改变在另一个context中已经完成。</p>
+<hr>
+<h1 id="Types">Types</h1><p>　　Objects can be separated into two different categories: regular objects and container objects. Here is the list of regular objects.</p>
+<p><strong>Regular objects</strong></p>
+<ul>
+<li>Buffer Objects</li>
+<li>Query Objects</li>
+<li>Renderbuffer Objects</li>
+<li>Sampler Objects</li>
+<li>Texture Objects</li>
+</ul>
+<p><strong>Container objects</strong></p>
+<ul>
+<li>Framebuffer Objects</li>
+<li>Program Pipeline Objects</li>
+<li>Transform Feedback Objects</li>
+<li>Vertex Array Objects</li>
+</ul>
+<hr>
+<h1 id="Names">Names</h1><p>　　正如上面所说，OpenGL Ojbects的名字是一个由系统分配的整数值，这种方式对于用户并不直观，在调试时也有很大的缺陷。在OpenGL 4.3 Core引入了一种为Object作标志的方法。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glObjectLabel​(GLenum identifier​, GLuint name​, </span><br><span class="line">                   GLsizei length​, <span class="keyword">const</span> <span class="keyword">char</span> * label​);</span><br><span class="line">                   </span><br><span class="line"><span class="keyword">void</span> glObjectPtrLabel​(<span class="keyword">void</span> * ptr​, GLsizei length​, <span class="keyword">const</span> <span class="keyword">char</span> * label​);</span><br></pre></td></tr></table></figure></p>
+<p>第一种方法可以为所有的Objects设置Label，第二种为Sync Objects设置Label</p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th style="text-align:center">Object Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GL_BUFFER</td>
+<td style="text-align:center">Buffer Object</td>
+</tr>
+<tr>
+<td>GL_SHADER</td>
+<td style="text-align:center">Shader Object</td>
+</tr>
+<tr>
+<td>GL_PROGRAM</td>
+<td style="text-align:center">Program Object</td>
+</tr>
+<tr>
+<td>GL_VERTEX_ARRAY</td>
+<td style="text-align:center">Vertex Array Object</td>
+</tr>
+<tr>
+<td>GL_QUERY</td>
+<td style="text-align:center">Query Object</td>
+</tr>
+<tr>
+<td>GL_PROGRAM_PIPELINE</td>
+<td style="text-align:center">Program Pipeline Object</td>
+</tr>
+<tr>
+<td>GL_TRANSFORM_FEEDBACK</td>
+<td style="text-align:center">Transform Feedback Object</td>
+</tr>
+<tr>
+<td>GL_SAMPLER</td>
+<td style="text-align:center">Sampler Object</td>
+</tr>
+<tr>
+<td>GL_TEXTURE</td>
+<td style="text-align:center">Texture Object</td>
+</tr>
+<tr>
+<td>GL_RENDERBUFFER</td>
+<td style="text-align:center">Renderbuffer Object</td>
+</tr>
+<tr>
+<td>GL_FRAMEBUFFER</td>
+<td style="text-align:center">Framebuffer Object</td>
+</tr>
+</tbody>
+</table>
+<p>查询设置Label的Objects<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> glGetObjectLabel​(<span class="type">GLenum</span> identifier​, <span class="type">GLuint</span> name​, <span class="type">GLsizei</span> bufSize​,</span><br><span class="line">                      <span class="type">GLsizei</span> * length​, <span class="type">char</span> * label​);</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> glGetObjectPtrLabel​(<span class="type">void</span> * <span class="keyword">ptr</span>​, <span class="type">GLsizei</span> bufSize​, </span><br><span class="line">                         <span class="type">GLsizei</span> * length​, <span class="type">char</span> * label​);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="Other">Other</h1><p>　　The following are “objects”, but they do not follow the standard conventions laid out on this page for OpenGL objects:</p>
+<ul>
+<li>Sync Objects</li>
+<li>Shader and Program Objects</li>
+</ul>
+<p>Except for program pipeline objects, which do follow the OpenGL Object conventions.</p>
+<p><a href="https://www.opengl.org/wiki/OpenGL_Object" target="_blank" rel="external">–Original: OpenGL Wiki–</a></p>
+</span>
       
     </div>
 
@@ -284,7 +392,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -332,7 +440,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creation_&_Destruction"><span class="nav-number">2.</span> <span class="nav-text">Creation & Destruction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deletion_unbinding"><span class="nav-number">2.1.</span> <span class="nav-text">Deletion unbinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deletion_orphaning"><span class="nav-number">2.2.</span> <span class="nav-text">Deletion orphaning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object_zero"><span class="nav-number">3.1.</span> <span class="nav-text">Object zero</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Multibind"><span class="nav-number">4.</span> <span class="nav-text">Multibind</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sharing"><span class="nav-number">5.</span> <span class="nav-text">Sharing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Types"><span class="nav-number">6.</span> <span class="nav-text">Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Names"><span class="nav-number">7.</span> <span class="nav-text">Names</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-number">8.</span> <span class="nav-text">Other</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="DirectX," />
+  <meta name="keywords" content="OpenGL," />
 
 
 
@@ -37,25 +37,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
+<meta name="description" content="ShaderObjectsCompilationIntrospection
+Core Language
+Variable typesType qualifiesLayout qualifesUniform variablesSampler variables
+Built-in variables
+Interface blocks
+Shader StatesVertex ShaderTessella">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DirectX11-Framework">
-<meta property="og:url" content="http://byhj.github.io/2015/09/01/DirectX11-Framework/index.html">
+<meta property="og:title" content="OpenGL-GLSL">
+<meta property="og:url" content="http://byhj.github.io/2015/09/21/OpenGL-GLSL/index.html">
 <meta property="og:site_name" content="byhj Blog">
-<meta property="og:description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
-<meta property="og:updated_time" content="2015-09-17T14:16:04.807Z">
+<meta property="og:description" content="ShaderObjectsCompilationIntrospection
+Core Language
+Variable typesType qualifiesLayout qualifesUniform variablesSampler variables
+Built-in variables
+Interface blocks
+Shader StatesVertex ShaderTessella">
+<meta property="og:updated_time" content="2015-09-21T10:40:52.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DirectX11-Framework">
-<meta name="twitter:description" content="FrameworkDrectX11 Framework 分为InitInit WindowInit D3D
-Update
-Render
-Shutdownd">
+<meta name="twitter:title" content="OpenGL-GLSL">
+<meta name="twitter:description" content="ShaderObjectsCompilationIntrospection
+Core Language
+Variable typesType qualifiesLayout qualifesUniform variablesSampler variables
+Built-in variables
+Interface blocks
+Shader StatesVertex ShaderTessella">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +71,7 @@ Shutdownd">
   };
 </script>
 
-  <title> DirectX11-Framework | byhj Blog </title>
+  <title> OpenGL-GLSL | byhj Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,7 +186,7 @@ Shutdownd">
           
           
             
-              DirectX11-Framework
+              OpenGL-GLSL
             
           
         </h1>
@@ -189,8 +195,8 @@ Shutdownd">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-01T08:50:17+08:00" content="2015-09-01">
-            2015-09-01
+          <time itemprop="dateCreated" datetime="2015-09-21T10:32:39+08:00" content="2015-09-21">
+            2015-09-21
           </time>
         </span>
 
@@ -208,10 +214,14 @@ Shutdownd">
       
 
       
-        <span itemprop="articleBody"><h1 id="Framework">Framework</h1><h2 id="DrectX11_Framework_分为">DrectX11 Framework 分为</h2><h2 id="Init">Init</h2><h3 id="Init_Window">Init Window</h3><h3 id="Init_D3D">Init D3D</h3><hr>
-<h2 id="Update">Update</h2><hr>
-<h2 id="Render">Render</h2><hr>
-<h2 id="Shutdownd">Shutdownd</h2></span>
+        <span itemprop="articleBody"><h1 id="Shader">Shader</h1><h2 id="Objects">Objects</h2><h2 id="Compilation">Compilation</h2><h2 id="Introspection">Introspection</h2><hr>
+<h1 id="Core_Language">Core Language</h1><hr>
+<h1 id="Variable_types">Variable types</h1><h2 id="Type_qualifies">Type qualifies</h2><h2 id="Layout_qualifes">Layout qualifes</h2><h2 id="Uniform_variables">Uniform variables</h2><h2 id="Sampler_variables">Sampler variables</h2><hr>
+<h1 id="Built-in_variables">Built-in variables</h1><hr>
+<h1 id="Interface_blocks">Interface blocks</h1><hr>
+<h1 id="Shader_States">Shader States</h1><h2 id="Vertex_Shader">Vertex Shader</h2><h2 id="Tessellation">Tessellation</h2><h2 id="Tess_Control_Shader">Tess Control Shader</h2><h2 id="Tess_Evaluation_Shader">Tess Evaluation Shader</h2><h2 id="Geometry_Shader">Geometry Shader</h2><h2 id="Fragment_Shader">Fragment Shader</h2><h2 id="Computer_Shader">Computer Shader</h2><hr>
+<h1 id="Other_shading_language">Other shading language</h1><hr>
+</span>
       
     </div>
 
@@ -219,7 +229,7 @@ Shutdownd">
       
         <div class="post-tags">
           
-            <a href="/tags/DirectX/" rel="tag">#DirectX</a>
+            <a href="/tags/OpenGL/" rel="tag">#OpenGL</a>
           
         </div>
       
@@ -228,11 +238,13 @@ Shutdownd">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/15/Direct3D12-Glossary/" rel="prev">Direct3D12-Glossary</a>
+              <a href="/2015/09/21/OpenGL-Debug/" rel="prev">OpenGL-Debug</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/20/OpenGL-BufferObject/" rel="next">OpenGL-BufferObject</a>
             
           </div>
         </div>
@@ -342,7 +354,7 @@ Shutdownd">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DrectX11_Framework_分为"><span class="nav-number">1.1.</span> <span class="nav-text">DrectX11 Framework 分为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Init"><span class="nav-number">1.2.</span> <span class="nav-text">Init</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Init_Window"><span class="nav-number">1.2.1.</span> <span class="nav-text">Init Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Init_D3D"><span class="nav-number">1.2.2.</span> <span class="nav-text">Init D3D</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">1.3.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Render"><span class="nav-number">1.4.</span> <span class="nav-text">Render</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shutdownd"><span class="nav-number">1.5.</span> <span class="nav-text">Shutdownd</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shader"><span class="nav-number">1.</span> <span class="nav-text">Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Objects"><span class="nav-number">1.1.</span> <span class="nav-text">Objects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compilation"><span class="nav-number">1.2.</span> <span class="nav-text">Compilation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introspection"><span class="nav-number">1.3.</span> <span class="nav-text">Introspection</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Core_Language"><span class="nav-number">2.</span> <span class="nav-text">Core Language</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variable_types"><span class="nav-number">3.</span> <span class="nav-text">Variable types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Type_qualifies"><span class="nav-number">3.1.</span> <span class="nav-text">Type qualifies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout_qualifes"><span class="nav-number">3.2.</span> <span class="nav-text">Layout qualifes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uniform_variables"><span class="nav-number">3.3.</span> <span class="nav-text">Uniform variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sampler_variables"><span class="nav-number">3.4.</span> <span class="nav-text">Sampler variables</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Built-in_variables"><span class="nav-number">4.</span> <span class="nav-text">Built-in variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface_blocks"><span class="nav-number">5.</span> <span class="nav-text">Interface blocks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shader_States"><span class="nav-number">6.</span> <span class="nav-text">Shader States</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex_Shader"><span class="nav-number">6.1.</span> <span class="nav-text">Vertex Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tessellation"><span class="nav-number">6.2.</span> <span class="nav-text">Tessellation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tess_Control_Shader"><span class="nav-number">6.3.</span> <span class="nav-text">Tess Control Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tess_Evaluation_Shader"><span class="nav-number">6.4.</span> <span class="nav-text">Tess Evaluation Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geometry_Shader"><span class="nav-number">6.5.</span> <span class="nav-text">Geometry Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment_Shader"><span class="nav-number">6.6.</span> <span class="nav-text">Fragment Shader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computer_Shader"><span class="nav-number">6.7.</span> <span class="nav-text">Computer Shader</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other_shading_language"><span class="nav-number">7.</span> <span class="nav-text">Other shading language</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
