@@ -5,19 +5,19 @@
   
   <title>Cocos2dx-AndroidStudio | byhj Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
-#2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
+  <meta name="description" content="1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
+2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cocos2dx-AndroidStudio">
 <meta property="og:url" content="http://byhj.github.io/2015/12/16/Cocos2dx-AndroidStudio/index.html">
 <meta property="og:site_name" content="byhj Blog">
-<meta property="og:description" content="#1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
-#2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
-<meta property="og:updated_time" content="2015-12-16T13:53:57.930Z">
+<meta property="og:description" content="1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
+2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
+<meta property="og:updated_time" content="2015-12-17T13:33:30.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocos2dx-AndroidStudio">
-<meta name="twitter:description" content="#1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
-#2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
+<meta name="twitter:description" content="1.简介   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.
+2.测试环境Windows10Cocos2dx3.9AndroidStudio1.3.2">
   
     <link rel="alternative" href="/atom.xml" title="byhj Blog" type="application/atom+xml">
   
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a>
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a>
 					</div>
 				</section>
 				
@@ -221,11 +221,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1.简介<br>   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.</p>
-<p>#2.测试环境<br>Windows10<br>Cocos2dx3.9<br>AndroidStudio1.3.2</p>
+        <h1 id="1-简介">1.简介</h1><p>   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.</p>
+<h1 id="2-测试环境">2.测试环境</h1><p>Windows10<br>Cocos2dx3.9<br>AndroidStudio1.3.2</p>
  <a id="more"></a>
-<p>#3.内容</p>
-<p>   Cocos2dx的环境配置安装官网上说的进行，下载所需要的sdk，在Cocos2dx 的build文件夹中用VS2015打开解决方案，编译链接程序。<br>    编译成功后使用Cocos控制台命令创建一个HelloWorld工程</p>
+<h1 id="3-内容">3.内容</h1><p>   Cocos2dx的环境配置安装官网上说的进行，下载所需要的sdk，在Cocos2dx 的build文件夹中用VS2015打开解决方案，编译链接程序。<br>    编译成功后使用Cocos控制台命令创建一个HelloWorld工程</p>
 <pre><code>cocos new HellWorld -<span class="tag">p</span> com<span class="class">.byhj</span> -l cpp -d D:/Cocos2dX
 </code></pre><p>  在D盘的Cocos2dx文件夹中可以看见新生成的HelloWorld的cocos2dx工程，里面有着多个平台开发的项目选择，一般我们使用VS编写调试工程，最后移植到所需要的平台。<br>     接着就是使用AndroidStudio测试的关键部分，因为AndroidStudio使用gradle构建系统，所以具体NDK的使用跟Eclipse有所区别，而且在AndroisStudio1.3以后，使用gradle-experimental支持NDK开发。在新生成HelloWorld工程根目录打开cmd，输入下面命令：</p>
 <pre><code>cocos <span class="command">run</span>/compile -p android <span class="comment">--android-studio      </span>
@@ -238,6 +237,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/12/17/MoreEffectiveC++/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          More Effective C++总结
+        
+      </div>
+    </a>
   
   
     <a href="/2015/10/06/Movie/" id="article-nav-older" class="article-nav-link-wrap">
