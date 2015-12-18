@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OpenGL-Objects | byhj Blog</title>
+  <title>OpenGL-Objects | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL-Objects">
 <meta property="og:url" content="http://byhj.github.io/2015/09/17/OpenGL-Objects/index.html">
-<meta property="og:site_name" content="byhj Blog">
+<meta property="og:site_name" content="byhj zzZ~~~">
 <meta property="og:description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
 <meta property="og:updated_time" content="2015-12-17T04:48:10.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL-Objects">
 <meta name="twitter:description" content="Introduction 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变Ope">
   
-    <link rel="alternative" href="/atom.xml" title="byhj Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -201,9 +201,16 @@
       </div>
       
     
+    
     <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction">Introduction</h1><p> 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。<br>　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变OpenGL的状态，也可以查询某些状态量，或者使用当前的状态去Rendering。<br>　　 OpenGL有着多种类型的Ojbects, 它们存储着不同的状态，一组状态被封装在一个OpenGL Objects中，我们可以通过函数调用去改变它们。<br>　　 需要注意的是，OpenGL只是制定相应的规范，具体实现是由各个显卡驱动的厂商决定的，但实现也一般都会符合OpenGL制定的规范。</p>
+  
+    
+    <div id="toc" class="article-toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creation_&_Destruction"><span class="toc-number">2.</span> <span class="toc-text">Creation & Destruction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deletion_unbinding"><span class="toc-number">2.1.</span> <span class="toc-text">Deletion unbinding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deletion_orphaning"><span class="toc-number">2.2.</span> <span class="toc-text">Deletion orphaning</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Usage"><span class="toc-number">3.</span> <span class="toc-text">Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object_zero"><span class="toc-number">3.1.</span> <span class="toc-text">Object zero</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multibind"><span class="toc-number">4.</span> <span class="toc-text">Multibind</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sharing"><span class="toc-number">5.</span> <span class="toc-text">Sharing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Types"><span class="toc-number">6.</span> <span class="toc-text">Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Names"><span class="toc-number">7.</span> <span class="toc-text">Names</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">8.</span> <span class="toc-text">Other</span></a></li></ol>
+      <hr/>
+    </div>
+    
+    <h1 id="Introduction">Introduction</h1><p> 　　在OpenGL中，OpenGL Objects是一种包含着一些状态的结构。当你把OpenGL Objects绑定到上下文环境时，Objects内含的状态就会映射到上下文环境中的状态。在这个时候，如果你通过API函数修改了上下文中的状态，对应OpenGL Ojects内的状态也会被修改。<br>　　 OpenGL被定义为一种“状态机”，它所提供的多种API函数调用可以改变OpenGL的状态，也可以查询某些状态量，或者使用当前的状态去Rendering。<br>　　 OpenGL有着多种类型的Ojbects, 它们存储着不同的状态，一组状态被封装在一个OpenGL Objects中，我们可以通过函数调用去改变它们。<br>　　 需要注意的是，OpenGL只是制定相应的规范，具体实现是由各个显卡驱动的厂商决定的，但实现也一般都会符合OpenGL制定的规范。</p>
 <hr>
 <a id="more"></a>
 <h1 id="Creation_&amp;_Destruction">Creation &amp; Destruction</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void glGen<span class="keyword">*</span>(GLsizei n, GLuint <span class="keyword">*</span>objects)</span><br></pre></td></tr></table></figure>
@@ -313,8 +320,9 @@
 <p>Except for program pipeline objects, which do follow the OpenGL Object conventions.</p>
 <p><a href="https://www.opengl.org/wiki/OpenGL_Object" target="_blank" rel="external">–Original: OpenGL Wiki–</a></p>
 
-      
-    </div>
+  
+</div>
+
     
   </div>
   

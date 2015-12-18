@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>More Effective C++总结 | byhj Blog</title>
+  <title>More Effective C++总结 | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="More Effective C++总结">
 <meta property="og:url" content="http://byhj.github.io/2015/12/17/MoreEffectiveC++/index.html">
-<meta property="og:site_name" content="byhj Blog">
+<meta property="og:site_name" content="byhj zzZ~~~">
 <meta property="og:description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
 <meta property="og:updated_time" content="2015-12-18T01:44:48.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="More Effective C++总结">
 <meta name="twitter:description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
   
-    <link rel="alternative" href="/atom.xml" title="byhj Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -201,9 +201,16 @@
       </div>
       
     
+    
     <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-仔细区别pointers和references">1.仔细区别pointers和references</h1><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，而reference总是指向（代表）它最初获得的那个对象。<br>　　在实现某些操作符，例如operator[], 使用reference能够比较自然得到“被当做assignment赋值对象”的功能。</p>
+  
+    
+    <div id="toc" class="article-toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-仔细区别pointers和references"><span class="toc-number">1.</span> <span class="toc-text">1.仔细区别pointers和references</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-最好使用C++转型操作符"><span class="toc-number">2.</span> <span class="toc-text">2.最好使用C++转型操作符</span></a></li></ol>
+      <hr/>
+    </div>
+    
+    <h1 id="1-仔细区别pointers和references">1.仔细区别pointers和references</h1><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，而reference总是指向（代表）它最初获得的那个对象。<br>　　在实现某些操作符，例如operator[], 使用reference能够比较自然得到“被当做assignment赋值对象”的功能。</p>
  <a id="more"></a>
 <hr>
 <h1 id="2-最好使用C++转型操作符">2.最好使用C++转型操作符</h1><p>　　由于旧式C语言的转型几乎可以将任何类型转换为其它类型，而没有给出每次转型更精确的意图，加上旧式转型的小括号方式在程序中可能难以辨识，所以最好才采用C++新的转型类型操作符：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">static_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
@@ -215,8 +222,9 @@
 <span class="hexcolor">#def</span>ine <span class="function"><span class="title">const_cast</span><span class="params">(TYPE, EXPR)</span></span>        ((TYPE) (EXPR))
 <span class="hexcolor">#def</span>ine <span class="function"><span class="title">reinterpret_cast</span><span class="params">(TYPE, EXPR)</span></span>  ((TYPE) (EXPR))
 </code></pre>
-      
-    </div>
+  
+</div>
+
     
   </div>
   

@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OpenGL-Rendering Pipeline | byhj Blog</title>
+  <title>OpenGL-Rendering Pipeline | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="OpenGL渲染流水线">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL-Rendering Pipeline">
 <meta property="og:url" content="http://byhj.github.io/2015/09/17/OpenGL-RenderingPipeline/index.html">
-<meta property="og:site_name" content="byhj Blog">
+<meta property="og:site_name" content="byhj zzZ~~~">
 <meta property="og:description" content="OpenGL渲染流水线">
 <meta property="og:image" content="http://7xlvtd.com1.z0.glb.clouddn.com/OpenGLRenderingPipeline-1.png">
 <meta property="og:image" content="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/27893569.jpg">
@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="OpenGL-Rendering Pipeline">
 <meta name="twitter:description" content="OpenGL渲染流水线">
   
-    <link rel="alternative" href="/atom.xml" title="byhj Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -204,9 +204,16 @@
       </div>
       
     
+    
     <div class="article-entry" itemprop="articleBody">
-      
-        <p>OpenGL渲染流水线</p>
+  
+    
+    <div id="toc" class="article-toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vertex_Specification"><span class="toc-number">1.</span> <span class="toc-text">Vertex Specification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vertex_Rendering"><span class="toc-number">1.1.</span> <span class="toc-text">Vertex Rendering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Primitive"><span class="toc-number">1.2.</span> <span class="toc-text">Primitive</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vertex_Processing"><span class="toc-number">2.</span> <span class="toc-text">Vertex Processing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vertex_Shader"><span class="toc-number">2.1.</span> <span class="toc-text">Vertex Shader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tessellation"><span class="toc-number">2.2.</span> <span class="toc-text">Tessellation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Geometry"><span class="toc-number">2.3.</span> <span class="toc-text">Geometry</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vertex_pos-processing"><span class="toc-number">3.</span> <span class="toc-text">Vertex pos-processing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Transform_Feedback"><span class="toc-number">3.1.</span> <span class="toc-text">Transform Feedback</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clipping"><span class="toc-number">3.2.</span> <span class="toc-text">Clipping</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Primitive_assembly"><span class="toc-number">4.</span> <span class="toc-text">Primitive assembly</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Face_Culling"><span class="toc-number">4.1.</span> <span class="toc-text">Face Culling</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rasterization"><span class="toc-number">5.</span> <span class="toc-text">Rasterization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fragment_Processing"><span class="toc-number">6.</span> <span class="toc-text">Fragment Processing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Per-Sample_Operations"><span class="toc-number">7.</span> <span class="toc-text">Per-Sample Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrissor_Test"><span class="toc-number">7.1.</span> <span class="toc-text">Scrissor Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stencil_Test"><span class="toc-number">7.2.</span> <span class="toc-text">Stencil Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Depth_Test"><span class="toc-number">7.3.</span> <span class="toc-text">Depth Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blending"><span class="toc-number">7.4.</span> <span class="toc-text">Blending</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logical_Operations"><span class="toc-number">7.5.</span> <span class="toc-text">Logical Operations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Masking_operations"><span class="toc-number">7.6.</span> <span class="toc-text">Masking operations</span></a></li></ol></li></ol>
+      <hr/>
+    </div>
+    
+    <p>OpenGL渲染流水线</p>
 <a id="more"></a>
 <p><img src="http://7xlvtd.com1.z0.glb.clouddn.com/OpenGLRenderingPipeline-1.png" alt="RenderingPipeline1"></p>
 <p><img src="http://7xlvtd.com1.z0.glb.clouddn.com/15-9-21/27893569.jpg" alt="RenderingPipeline2"></p>
@@ -220,8 +227,9 @@
 <h1 id="Fragment_Processing">Fragment Processing</h1><hr>
 <h1 id="Per-Sample_Operations">Per-Sample Operations</h1><h2 id="Scrissor_Test">Scrissor Test</h2><h2 id="Stencil_Test">Stencil Test</h2><h2 id="Depth_Test">Depth Test</h2><h2 id="Blending">Blending</h2><h2 id="Logical_Operations">Logical Operations</h2><h2 id="Masking_operations">Masking operations</h2><hr>
 
-      
-    </div>
+  
+</div>
+
     
   </div>
   

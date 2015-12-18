@@ -854,6 +854,15 @@ a {
 .body-wrap {
   margin-bottom: 80px;
 }
+#toc .toc {
+  padding: 0;
+}
+#toc .toc li {
+  list-style-type: none;
+}
+#toc ol {
+  margin-left: 0;
+}
 .article {
   margin: 30px;
   position: relative;

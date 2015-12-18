@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OpenGL-BufferObject | byhj Blog</title>
+  <title>OpenGL-BufferObject | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
 CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenGL-BufferObject">
 <meta property="og:url" content="http://byhj.github.io/2015/09/20/OpenGL-BufferObject/index.html">
-<meta property="og:site_name" content="byhj Blog">
+<meta property="og:site_name" content="byhj zzZ~~~">
 <meta property="og:description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
 CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
 <meta property="og:updated_time" content="2015-12-17T04:48:10.005Z">
@@ -19,7 +19,7 @@ CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects�
 <meta name="twitter:description" content="IntrodutionBuffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。
 CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer">
   
-    <link rel="alternative" href="/atom.xml" title="byhj Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -204,9 +204,16 @@ CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects�
       </div>
       
     
+    
     <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introdution">Introdution</h1><p>Buffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。</p>
+  
+    
+    <div id="toc" class="article-toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introdution"><span class="toc-number">1.</span> <span class="toc-text">Introdution</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creation"><span class="toc-number">2.</span> <span class="toc-text">Creation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Immutable_Storage"><span class="toc-number">2.1.</span> <span class="toc-text">Immutable Storage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Immutable_access_methods"><span class="toc-number">2.1.1.</span> <span class="toc-text">Immutable access methods</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data_Specification"><span class="toc-number">3.</span> <span class="toc-text">Data Specification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Clearing"><span class="toc-number">3.1.</span> <span class="toc-text">Clearing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copying"><span class="toc-number">3.2.</span> <span class="toc-text">Copying</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mapping"><span class="toc-number">3.3.</span> <span class="toc-text">Mapping</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#General_use"><span class="toc-number">4.</span> <span class="toc-text">General use</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multibind_and_indexed_targets"><span class="toc-number">4.1.</span> <span class="toc-text">Multibind and indexed targets</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol>
+      <hr/>
+    </div>
+    
+    <h1 id="Introdution">Introdution</h1><p>Buffer Objects是存储OpenGL Context(GPU)分配的一组非格式化内存的OpenGL Objects. 这些内存能够用来存储顶点数据，图像或者帧缓存返回的像素数据和其它数据。</p>
 <h1 id="Creation">Creation</h1><p>Buffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects的规定。你能使用glGenBuffersc创建Buffer Objects, 使用glDeleteBuffers删除它们。这些都是大多数OpenGL Object使用的标准生成和创建Objects的模式。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">glBindBuffer</span><span class="params">(<span class="keyword">enum</span> <span class="keyword">target</span>, uint bufferName)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>Buffer Objects存储的是任意大小的线性内存数组，这些内存在使用前需要被分配，有两种为Buffer Objects 分配内存的方法：可变或者不可变。为buffer分配不可变内存会改变你跟Buffer Object交互的方式。</p>
 <a id="more"></a>
@@ -250,8 +257,9 @@ CreationBuffer Objects是OpenGL Objects,所以它们遵循所有OpenGL Objects�
 <h2 id="Multibind_and_indexed_targets">Multibind and indexed targets</h2><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> glBindBuffersRange​(GLenum <span class="keyword">target</span>​, GLuint first​, GLsizei count​, <span class="keyword">const</span> GLuint *buffers​, <span class="keyword">const</span> GLintptr *offsets​, <span class="keyword">const</span> GLintptr *sizes​);</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="Reference">Reference</h1>
-      
-    </div>
+  
+</div>
+
     
   </div>
   
