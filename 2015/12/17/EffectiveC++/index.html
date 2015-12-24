@@ -1,653 +1,395 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<!DOCTYPE html>
+<html>
 <head>
+  <meta charset="utf-8">
   
-
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
-
-
-
-
-  <meta name="keywords" content="C++," />
-
-
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
-
-
-<meta name="description" content="让自己习惯C++视C++为一个语言联邦　　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
-
+  <title>Effective C++总结 | byhj zzZ~~~</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="让自己习惯C++视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
 C:C++部分继承了C的语法，这个部分没有模板，重载，继承，异常等语法。
 Object-Oriented C++:包含classes(构造析构)， 封装，继承，多态。
-Templat">
+Template">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++总结">
-<meta property="og:url" content="http://byhj.github.life/2015/12/17/EffectiveC++/index.html">
+<meta property="og:url" content="http://byhj.github.io/2015/12/17/EffectiveC++/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description" content="让自己习惯C++视C++为一个语言联邦　　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
-
+<meta property="og:description" content="让自己习惯C++视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
 C:C++部分继承了C的语法，这个部分没有模板，重载，继承，异常等语法。
 Object-Oriented C++:包含classes(构造析构)， 封装，继承，多态。
-Templat">
-<meta property="og:updated_time" content="2015-12-20T12:02:24.938Z">
+Template">
+<meta property="og:updated_time" content="2015-12-24T12:10:11.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++总结">
-<meta name="twitter:description" content="让自己习惯C++视C++为一个语言联邦　　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
-
+<meta name="twitter:description" content="让自己习惯C++视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：
 C:C++部分继承了C的语法，这个部分没有模板，重载，继承，异常等语法。
 Object-Oriented C++:包含classes(构造析构)， 封装，继承，多态。
-Templat">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-  <title> Effective C++总结 | byhj zzZ~~~ </title>
+Template">
+  
+    <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/byhj.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/img/byhj.png" class="js-avatar">
+			
+		</a>
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-  
+		<hgroup>
+		  <h1 class="header-author"><a href="/">byhj</a></h1>
+		</hgroup>
 
+		
+		<p class="header-subtitle">世上的鲜花会盛开，壮丽不朽的事物会接踵而来</p>
+		
 
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 13.33px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 13.33px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 10px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 16.67px;">DirectX</a> <a href="/tags/Math/" style="font-size: 10px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a>
+					</div>
+				</section>
+				
+				
+				
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
-      <span class="site-title">byhj zzZ~~~</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">爱书爱自然的一只鱼~~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
 </div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
-            标签
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">byhj</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/img/byhj.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">byhj</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">世上的鲜花会盛开，壮丽不朽的事物会接踵而来</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content"> 
-
-  <div id="posts" class="posts-expand">
+      <div class="body-wrap"><article id="post-EffectiveC++" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/17/EffectiveC++/" class="article-date">
+  	<time datetime="2015-12-17T13:11:28.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective C++总结
+    </h1>
+  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
+      </header>
       
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              Effective C++总结
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-12-17T21:11:28+08:00" content="2015-12-17">
-            2015-12-17
-          </time>
-        </span>
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</div>
 
         
 
-        
-          
-        
+        <div class="clearfix"></div>
       </div>
-    </header>
-
-    <div class="post-body">
-
       
-      
-
-      
-        <span itemprop="articleBody"><h1 id="让自己习惯C++">让自己习惯C++</h1><h2 id="视C++为一个语言联邦">视C++为一个语言联邦</h2><p>　　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：</p>
-<ul>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+    
+    <div id="toc" class="article-toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#让自己习惯C++"><span class="toc-number">1.</span> <span class="toc-text">让自己习惯C++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#视C++为一个语言联邦_当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言："><span class="toc-number">1.1.</span> <span class="toc-text">视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽量以const,_enum,_inlne替代_#define"><span class="toc-number">1.2.</span> <span class="toc-text">尽量以const, enum, inlne替代 #define</span></a></li></ol></li></ol>
+      <hr/>
+    </div>
+    
+    <h1 id="让自己习惯C++">让自己习惯C++</h1><h2 id="视C++为一个语言联邦_当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：">视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：</h2><ul>
 <li>C:<br>C++部分继承了C的语法，这个部分没有模板，重载，继承，异常等语法。</li>
 <li>Object-Oriented C++:<br>包含classes(构造析构)， 封装，继承，多态。</li>
 <li>Template C++:<br>泛型编程的基础，带来了所谓的Template metaprogramming(TMP)编程。</li>
 <li>STL:<br>STL是templater程序库，主要包括容器，迭代器，算法部分。</li>
 </ul>
 <p>不同的次语言有着不同的规则，在编写程序时要按照你的情况进行策略的转变。<br> <a id="more"></a></p>
-<hr>
-<h2 id="尽量以const,_enum,_inlne替代_#define">尽量以const, enum, inlne替代 #define</h2><p>　　宁可以编译器替换预处理器，因为#define不被视为语言的一部分，使用#define定义的名称没有进入符号表中，所以在追踪这类信息时会带来困扰。<br>预处理器盲目替换宏名称会带来更多的目标码，我们无法使用#define创建一个class专属常量，也不能提供任何封装性,下面的const提供了这些支持。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GamePlayer &#123;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> NumTurns = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">int</span> scores[NumTurns];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　如果你的编译环境不支持类内成员初始化，你可以使用所谓的“enum hack”代替，因为一个属于枚举类型的数值可以充当ints被使用。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GamePlayer</span> &#123;</span></span><br><span class="line"><span class="string">private:</span></span><br><span class="line">   <span class="class"><span class="keyword">enum</span> &#123;</span> NumTurns = <span class="number">5</span>&#125;;</span><br><span class="line">   <span class="typename">int</span> socres[NumTurns];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　在这里enum hack的行为某些方面比较像#define，因为取一个enum地址也不合法，而取一个const地址则是合法的。enum可以帮助你阻止别人<br>获得一个pointer或reference指向你的某个整数常量，enum hack是template metaprogramming的基础技术。</p>
-<p>　　另一个#define误用的地方是定义像函数一样的宏，需要记住宏中所以实参都要加上小括号，这样的形式的宏很容易出现错误。我们可以使用template inline函数去替代它：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;typename T&gt;</span><br><span class="line">inline <span class="type">void</span> max(<span class="keyword">const</span> T &amp;a, <span class="keyword">const</span> T &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">  f(a &gt; b ? a : b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="尽可能使用const">尽可能使用const</h2><p>　　const允许你指定一个语义约束，而编译器会强制实施这个约束。const在使用时出现在星号左边表示被指物是常量，在右边表示指针本身是常量。<br>STL迭代器以指针为根据塑模处理，所以也可以用const作用于它，其功能类似。const最具威力的用法是面对函数声明时的应用：</p>
-<ul>
-<li>在一个函数声明式内，const可以和函数返回值，各参数，函数本身产生关联<br>令一个函数返回常量值，可以避免客户端的赋值错误。</li>
-</ul>
-<p>　　const成员函数确认了此函数可以作用于const对象，使得class接口变得容易理解。同时，使得操作const对象成为可能，以pass by reference-to-const方式传递<br>对象，改善了C++的程序效率。两个成员函数常量性的不同可以成为重载函数，例如可以定义两个版本的operator[], 可以针对不同的情况下进行调用。</p>
-<ul>
-<li>bitwise constness<br>成员函数不更改对象内任何一个bit，这是C++对常量性的定义。</li>
-<li><p>logical constness<br>一个成员函数可以修改它所出来的对象内某些bits，但只有客户端侦测不出的情况下才这样做。</p>
-<p>我们可以利用mutable关键字释放not-static成员变量的bitwise constness约束。</p>
-<ul>
-<li>在const和non-const成员函数中避免重复<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">class</span> TextBlock &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">     <span class="keyword">const</span> <span class="keyword">char</span> &amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> pos) <span class="keyword">const</span></span><br><span class="line">     &#123;</span><br><span class="line">       <span class="keyword">return</span> text[pos];</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">char</span> &amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> pos)</span><br><span class="line">     &#123;</span><br><span class="line">       <span class="keyword">return</span> text[pos];</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>为了避免重复，我们令non-const版本调用const版本<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> TextBlock</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">char</span> &amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> pos) <span class="keyword">const</span></span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">return</span> text[pos];</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">char</span> &amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> pos)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="comment">//有两次转型，第一次是为了调用const版本的[]避免递归，第二次是为了移除const</span></span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>&amp;&gt;( <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> TextBlock &amp;)(*<span class="keyword">this</span>)[pos] );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　需要注意的是，const成员函数承诺不改变对象的逻辑状态，所以使用const版本调用non-const版本是错误的，<br>这样做对象有可能因此被改动，使用了const_cast将（this*)身上的const性质解放掉。</p>
-<hr>
-<h2 id="确定对象被使用前已先被初始化">确定对象被使用前已先被初始化</h2><p>　　读取未初始化的值会导致不明确的行为，在使用对象前先初始化。对于内置类型之外的东西，其初始化责任落在构造函数上。<br>需要注意的是赋值和初始化的区别<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  //<span class="keyword">default</span> construct + copy assignment</span><br><span class="line">  Test(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><br><span class="line">  &#123;</span><br><span class="line">    m_a = a;</span><br><span class="line">    m_b = b;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> m_a;</span><br><span class="line">   <span class="keyword">int</span> m_b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　在这个例子是先调用了default构造函数，然后再构造函数内对成员进行了赋值操作。对象的成员变量的初始化动作发生在进入构造函数本体之前。<br>比较好的方式时使用成员初始化列表<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">//copy construct</span><br><span class="line">  Test(<span class="keyword">int</span> a, <span class="keyword">int</span> b)：m_a(a), m_b(b) &#123;  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   <span class="keyword">int</span> m_a;</span><br><span class="line">   <span class="keyword">int</span> m_b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　如果成员变量是const或references时，它们一定需要初值而不能被赋值。对于那谢赋值表现得初始化一样好的成员表里，<br>改用它们的赋值操作，并移动到private的某个函数，供所有构造函数调用避免重复代码。<br>C++成员初始化次序总是安装成员声明的顺序，所以避免两个成员变量初始化带有次序性。</p>
-<ul>
-<li>C++对于定义在不同编译单元内的non-local static 对象的初始化次序无明确的定义<br>non-local对象包括：<br>global对象，定义在namespace作用域内对象<br>在classes内，以及在file作用域内被声明为static的对象。</li>
-</ul>
-<p>在函数内static对象是local-staic对象<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> FileSystem &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">size_t</span> numDistks() <span class="keyword">const</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">extern</span> FileSystem fs;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Directory &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    Directory(params)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">std</span>::<span class="keyword">size_t</span> disks = fs.numDistks();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//当fs在tempDir以前初始化，这才合法，但顺序不是确定的，两者都是global对象，是non-local static对象。</span></span><br><span class="line"><span class="function">Directory <span class="title">tempDir</span><span class="params">(params)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>　　多个编译单元内的non-local static对象经由模板隐式具现化形成。<br>我们可以使用设计模式中Singleton手法进行处理，C++保证函数内的local static对象会在该函数被调用期间，首次<br>遇上该对象之定义式时被初始化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> FileSystem &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">std</span>::<span class="keyword">size_t</span> numDistks() <span class="keyword">const</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">FileSystem &amp; <span class="title">fs</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  staic FileSystem fs;</span><br><span class="line">  <span class="keyword">return</span> fs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Directory &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    Directory(params)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">std</span>::<span class="keyword">size_t</span> disks = fs().numDistks();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Directory &amp; tempDir</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">static</span> Directory td;</span><br><span class="line">  <span class="keyword">return</span> td;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="构造/析构/赋值运算">构造/析构/赋值运算</h1><h2 id="了解C++默默编写并调用哪些函数">了解C++默默编写并调用哪些函数</h2><p>　　一个Empty class并不空，编译器会为它声明一个copy构造函数，一个copy assignment操作符和一个析构函数。<br>如果你没有声明任何构造函数，编译器还会为你声明一个default构造函数，所有这些函数都是public inline。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="keyword">Empty</span>() &#123;&#125;</span><br><span class="line">   <span class="keyword">Empty</span>(<span class="keyword">const</span> <span class="keyword">Empty</span> &amp;) &#123;&#125;</span><br><span class="line">  ~<span class="keyword">Empty</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">Empty</span> &amp; operator = (<span class="keyword">const</span> <span class="keyword">Empty</span> &amp;rhs) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>　　在这些函数被需要(调用)时才会被编译器创建处理。这样copy构造函数和copy assignment操作符只是单纯的将来源对象的每一个non-static<br>成员变量拷贝到目标对象。而default构造函数和析构函数主要为编译器调用base classes和non-static成员变量的构造函数和析构函数提供环境。<br>当生将要成的copy assignment合法且有意义时，编译器才会执行生成操作，改变reference对象或者const成员，以及base class将copy assignment<br>定义为private都会导致copy assignment生成失败。</p>
-<h2 id="若不想使用编译器自动生成的函数，就该明确拒绝">若不想使用编译器自动生成的函数，就该明确拒绝</h2><p>　　在旧C++中，将copy构造函数或者copy assignment操作符声明为private可以阻止人们调用它们。但是member函数和friend函数还是有可能去调用<br>它们，我们可以将连接器的错误移至编译期，以尽早发现这类错误。具体做法如下：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Uncopyable</span> &#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">   Uncopyable() &#123;&#125;</span><br><span class="line">  ~Uncopyable() &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">   Uncopyable(<span class="keyword">const</span> Uncopyable &amp;);</span><br><span class="line">   Uncopyable &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Uncopyable &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">Test</span> : <span class="title">private</span> <span class="title">Uncopyable</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>当有尝试拷贝Test对象的操作发生，编译器会拒绝这些操作。在C++11中可以使用 = delete函数修饰符声明成员函数为删除的，使得编译器不自动生成。</p>
-<h2 id="为多态基类声明virtual析构函数">为多态基类声明virtual析构函数</h2><p>　　当derived class对象经由一个base class指针被删除，而该base class带有一个non-virtual析构函数时，其结果未有定义，因为实际执行时对象<br>的derived成分没有被销毁，造成资源泄露。任何class只要带有virutal函数都几乎确定应该有一个virtual析构函数，如果不含virtual函数，通常表示<br>它并不意图被作为一个base class。<br>　　classes的设计目的如果不是作为base classes使用，或不是为了具备多态性就不该声明virtual析构函数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> AWOV &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="keyword">virtual</span> ~AWOV() = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//需要提供一份定义</span></span><br><span class="line">AWOV::~AWOV(） &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="令operator_=_返回一个reference_to_this">令operator = 返回一个reference to this</h2><p>　　为了能够连续赋值，赋值操作符应该返回一个reference指向操作符的走侧参数，这是个协议并没有强制性。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   Test <span class="keyword">operator</span> = （<span class="keyword">const</span> Test &amp;rhs)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
-      
-    </div>
+<h2 id="尽量以const,_enum,_inlne替代_#define">尽量以const, enum, inlne替代 #define</h2><hr>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">static_cast</span>&lt;type&gt;(expression)</span><br><span class="line">=======</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">## 尽量以const, enum, inlne替代 #<span class="keyword">define</span></span></span><br><span class="line">　　宁可以编译器替换预处理器，因为<span class="preprocessor">#<span class="keyword">define</span>不被视为语言的一部分，使用#<span class="keyword">define</span>定义的名称没有进入符号表中，所以在追踪这类信息时会带来困扰。</span></span><br><span class="line">预处理器盲目替换宏名称会带来更多的目标码，我们无法使用<span class="preprocessor">#<span class="keyword">define</span>创建一个class专属常量，也不能提供任何封装性,下面的const提供了这些支持。</span></span><br></pre></td></tr></table></figure>
+<p>class GamePlayer {<br>  private:<br>  static const int NumTurns = 5;<br>  int scores[NumTurns];<br>};<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　如果你的编译环境不支持类内成员初始化，你可以使用所谓的“<span class="keyword">enum</span> <span class="title">hack</span>”代替，因为一个属于枚举类型的数值可以充当ints被使用。</span><br></pre></td></tr></table></figure></p>
+<p>class GamePlayer {<br>private:<br>   enum { NumTurns = 5};<br>   int socres[NumTurns];<br>};<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　在这里enum hack的行为某些方面比较像<span class="hexcolor">#def</span>ine，因为取一个enum地址也不合法，而取一个const地址则是合法的。enum可以帮助你阻止别人</span><br><span class="line">获得一个pointer或reference指向你的某个整数常量，enum hack是template metaprogramming的基础技术。</span><br><span class="line"></span><br><span class="line">　　另一个<span class="hexcolor">#def</span>ine误用的地方是定义像函数一样的宏，需要记住宏中所以实参都要加上小括号，这样的形式的宏很容易出现错误。我们可以使用template inline函数去替代它：</span><br></pre></td></tr></table></figure></p>
+<p>template<typename t=""><br>inline void max(const T &amp;a, const T &amp;b)<br>{<br>  f(a &gt; b ? a : b);<br>}<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"></span><br><span class="line">## 尽可能使用<span class="keyword">const</span></span><br><span class="line">　　<span class="keyword">const</span>允许你指定一个语义约束，而编译器会强制实施这个约束。<span class="keyword">const</span>在使用时出现在星号左边表示被指物是常量，在右边表示指针本身是常量。</span><br><span class="line">STL迭代器以指针为根据塑模处理，所以也可以用<span class="keyword">const</span>作用于它，其功能类似。<span class="keyword">const</span>最具威力的用法是面对函数声明时的应用：</span><br><span class="line">- 在一个函数声明式内，<span class="keyword">const</span>可以和函数返回值，各参数，函数本身产生关联</span><br><span class="line">令一个函数返回常量值，可以避免客户端的赋值错误。</span><br><span class="line"></span><br><span class="line">　　<span class="keyword">const</span>成员函数确认了此函数可以作用于<span class="keyword">const</span>对象，使得<span class="keyword">class</span>接口变得容易理解。同时，使得操作<span class="keyword">const</span>对象成为可能，以pass <span class="keyword">by</span> <span class="keyword">reference</span>-<span class="keyword">to</span>-<span class="keyword">const</span>方式传递</span><br><span class="line">对象，改善了C++的程序效率。两个成员函数常量性的不同可以成为重载函数，例如可以定义两个版本的<span class="keyword">operator</span>[], 可以针对不同的情况下进行调用。</span><br><span class="line"></span><br><span class="line">- bitwise constness</span><br><span class="line">  成员函数不更改对象内任何一个bit，这是C++对常量性的定义。</span><br><span class="line">- logical constness</span><br><span class="line">  一个成员函数可以修改它所出来的对象内某些bits，但只有客户端侦测不出的情况下才这样做。</span><br><span class="line"></span><br><span class="line">  我们可以利用mutable关键字释放<span class="keyword">not</span>-<span class="keyword">static</span>成员变量的bitwise constness约束。</span><br><span class="line">  - 在<span class="keyword">const</span>和non-<span class="keyword">const</span>成员函数中避免重复</span><br></pre></td></tr></table></figure></typename></p>
+<p>  class TextBlock {<br>    public:<br>     const char &amp; operator<a href="std::size_t pos" target="_blank" rel="external"></a> const<br>     {<br>       return text[pos];<br>     }</p>
+<pre><code><span class="keyword">char</span> &amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> pos)
+{
+  <span class="keyword">return</span> text[pos];
+}
+</code></pre><p>};<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">为了避免重复，我们令non-<span class="keyword">const</span>版本调用<span class="keyword">const</span>版本</span><br></pre></td></tr></table></figure></p>
+<p>class TextBlock<br>{<br>  public:<br>   const char &amp; operator<a href="std::size_t pos" target="_blank" rel="external"></a> const<br>   {<br>     return text[pos];<br>   }<br>   char &amp; operator<a href="std::size_t pos" target="_blank" rel="external"></a><br>   {<br>     //有两次转型，第一次是为了调用const版本的[]避免递归，第二次是为了移除const<br>     return const_cast<char&>( static_cast&lt;const TextBlock &amp;)(*this)[pos] );<br>   }<br>};</char&></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　需要注意的是，<span class="keyword">const</span>成员函数承诺不改变对象的逻辑状态，所以使用<span class="keyword">const</span>版本调用non-<span class="keyword">const</span>版本是错误的，</span><br><span class="line">这样做对象有可能因此被改动，使用了<span class="keyword">const_cast</span>将（<span class="keyword">this</span>*)身上的<span class="keyword">const</span>性质解放掉。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="preprocessor">## 确定对象被使用前已先被初始化</span></span><br><span class="line">　　读取未初始化的值会导致不明确的行为，在使用对象前先初始化。对于内置类型之外的东西，其初始化责任落在构造函数上。</span><br><span class="line">需要注意的是赋值和初始化的区别</span><br></pre></td></tr></table></figure>
+<p>class Test<br>{<br>public:<br>  //default construct + copy assignment<br>  Test(int a, int b)<br>  {<br>    m_a = a;<br>    m_b = b;<br>  }</p>
+<p>private:<br>   int m_a;<br>   int m_b;<br>};<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　在这个例子是先调用了<span class="default"><span class="keyword">default</span>构造函数，然后再构造函数内对成员进行了赋值操作。对象的成员变量的初始化动作发生在进入构造函数本体之前。</span></span><br><span class="line">比较好的方式时使用成员初始化列表</span><br></pre></td></tr></table></figure></p>
+<p>class Test<br>{<br>public:<br>//copy construct<br>  Test(int a, int b)：m_a(a), m_b(b) {  }</p>
+<p>private:<br>   int m_a;<br>   int m_b;<br>};<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">　　如果成员变量是<span class="keyword">const</span>或references时，它们一定需要初值而不能被赋值。对于那谢赋值表现得初始化一样好的成员表里，</span><br><span class="line">改用它们的赋值操作，并移动到private的某个函数，供所有构造函数调用避免重复代码。</span><br><span class="line">C++成员初始化次序总是安装成员声明的顺序，所以避免两个成员变量初始化带有次序性。</span><br><span class="line"></span><br><span class="line">- C++对于定义在不同编译单元内的non-<span class="keyword">local</span> <span class="keyword">static</span> 对象的初始化次序无明确的定义</span><br><span class="line">non-<span class="keyword">local</span>对象包括：</span><br><span class="line"><span class="keyword">global</span>对象，定义在namespace作用域内对象</span><br><span class="line">在classes内，以及在file作用域内被声明为<span class="keyword">static</span>的对象。</span><br><span class="line"></span><br><span class="line">在函数内<span class="keyword">static</span>对象是<span class="keyword">local</span>-staic对象</span><br></pre></td></tr></table></figure></p>
+<p>class FileSystem {<br>public:<br>  std::size_t numDistks() const;<br>};<br>extern FileSystem fs;</p>
+<p>class Directory {<br>  public:<br>    Directory(params)<br>    {<br>      std::size_t disks = fs.numDistks();<br>    }<br>};<br>//当fs在tempDir以前初始化，这才合法，但顺序不是确定的，两者都是global对象，是non-local static对象。<br>Directory tempDir(params);<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　多个编译单元内的non-<span class="keyword">local</span> <span class="keyword">static</span>对象经由模板隐式具现化形成。</span><br><span class="line">我们可以使用设计模式中<span class="built_in">Singleton</span>手法进行处理，C++保证函数内的<span class="keyword">local</span> <span class="keyword">static</span>对象会在该函数被调用期间，首次</span><br><span class="line">遇上该对象之定义式时被初始化</span><br></pre></td></tr></table></figure></p>
+<p>class FileSystem {<br>public:<br>  std::size_t numDistks() const;<br>};</p>
+<p>FileSystem &amp; fs()<br>{<br>  staic FileSystem fs;<br>  return fs;<br>}</p>
+<p>class Directory {<br>  public:<br>    Directory(params)<br>    {<br>      std::size_t disks = fs().numDistks();<br>    }<br>};<br>Directory &amp; tempDir<br>{<br>  static Directory td;<br>  return td;<br>}<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---<span class="preprocessor"></span><br><span class="line"># 构造/析构/赋值运算</span><span class="preprocessor"></span><br><span class="line"></span><br><span class="line">## 了解C++默默编写并调用哪些函数</span></span><br><span class="line">　　一个Empty <span class="class"><span class="keyword">class</span>并不空，编译器会为它声明一个<span class="title">copy</span>构造函数，一个<span class="title">copy</span> <span class="title">assignment</span>操作符和一个析构函数。</span></span><br><span class="line">如果你没有声明任何构造函数，编译器还会为你声明一个<span class="keyword">default</span>构造函数，所有这些函数都是<span class="keyword">public</span> <span class="keyword">inline</span>。</span><br></pre></td></tr></table></figure></p>
+<p>class Empty {<br>public:<br>   Empty() {}<br>   Empty(const Empty &amp;) {}<br>  ~Empty() {}</p>
+<pre><code><span class="keyword">Empty</span> &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> <span class="keyword">Empty</span> &amp;rhs) <span class="comment">{}</span>
+</code></pre><p>};<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　在这些函数被需要(调用)时才会被编译器创建处理。这样<span class="keyword">copy</span>构造函数和<span class="keyword">copy</span> assignment操作符只是单纯的将来源对象的每一个non-<span class="keyword">static</span></span><br><span class="line">成员变量拷贝到目标对象。而<span class="keyword">default</span>构造函数和析构函数主要为编译器调用base classes和non-<span class="keyword">static</span>成员变量的构造函数和析构函数提供环境。</span><br><span class="line">当生将要成的<span class="keyword">copy</span> assignment合法且有意义时，编译器才会执行生成操作，改变<span class="keyword">reference</span>对象或者<span class="keyword">const</span>成员，以及base <span class="keyword">class</span>将<span class="keyword">copy</span> assignment</span><br><span class="line">定义为<span class="keyword">private</span>都会导致<span class="keyword">copy</span> assignment生成失败。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 若不想使用编译器自动生成的函数，就该明确拒绝</span><br><span class="line">　　在旧C++中，将<span class="keyword">copy</span>构造函数或者<span class="keyword">copy</span> assignment操作符声明为<span class="keyword">private</span>可以阻止人们调用它们。但是member函数和friend函数还是有可能去调用</span><br><span class="line">它们，我们可以将连接器的错误移至编译期，以尽早发现这类错误。具体做法如下：</span><br></pre></td></tr></table></figure></p>
+<p>class Uncopyable {<br>protected:<br>   Uncopyable() {}<br>  ~Uncopyable() {}</p>
+<p>private:<br>   Uncopyable(const Uncopyable &amp;);<br>   Uncopyable &amp; operator = (const Uncopyable &amp;);<br>};</p>
+<p>class Test : private Uncopyable {</p>
+<p>};<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当有尝试拷贝Test对象的操作发生，编译器会拒绝这些操作。在C++<span class="number">11</span>中可以使用 = <span class="keyword">delete</span>函数修饰符声明成员函数为删除的，使得编译器不自动生成。</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">## 为多态基类声明virtual析构函数</span></span><br><span class="line">　　当derived <span class="keyword">class</span>对象经由一个base <span class="keyword">class</span>指针被删除，而该base <span class="keyword">class</span>带有一个non-<span class="keyword">virtual</span>析构函数时，其结果未有定义，因为实际执行时对象</span><br><span class="line">的derived成分没有被销毁，造成资源泄露。任何<span class="keyword">class</span>只要带有virutal函数都几乎确定应该有一个<span class="keyword">virtual</span>析构函数，如果不含<span class="keyword">virtual</span>函数，通常表示</span><br><span class="line">它并不意图被作为一个base <span class="keyword">class</span>。</span><br><span class="line">　　classes的设计目的如果不是作为base classes使用，或不是为了具备多态性就不该声明<span class="keyword">virtual</span>析构函数。</span><br></pre></td></tr></table></figure></p>
+<p>class AWOV {<br>public:<br>     virtual ~AWOV() = 0;<br>};<br>//需要提供一份定义<br>AWOV::~AWOV(） {}<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 令<span class="keyword">operator</span> = 返回一个<span class="keyword">reference</span> <span class="keyword">to</span> this</span><br><span class="line">　　为了能够连续赋值，赋值操作符应该返回一个<span class="keyword">reference</span>指向操作符的走侧参数，这是个协议并没有强制性。</span><br></pre></td></tr></table></figure></p>
+<p>class Test {<br>public:<br>   Test operator = （const Test &amp;rhs)<br>   {<br>     return *this;<br>   }<br>}</p>
+<p>```</p>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag">#C++</a>
-          
-        </div>
-      
+  
+</div>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/17/MoreEffectiveC++/" rel="prev">More Effective C++总结</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/12/16/Cocos2dx-AndroidStudio/" rel="next">Cocos2dx-AndroidStudio</a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
-
- </div>
-
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/18/Books/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-
-        
-          <div class="comments" id="comments">
-            
-          </div>
+          Books
         
       </div>
-
-      
+    </a>
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  
+    <a href="/2015/12/17/MoreEffectiveC++/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">More Effective C++总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="EffectiveC++" data-title="Effective C++总结" data-url="http://byhj.github.io/2015/12/17/EffectiveC++/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 byhj
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
   </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/byhj.png" alt="byhj" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">byhj</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description"></p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">12</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/byhj" target="_blank">github</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#让自己习惯C++"><span class="nav-number">1.</span> <span class="nav-text">让自己习惯C++</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视C++为一个语言联邦"><span class="nav-number">1.1.</span> <span class="nav-text">视C++为一个语言联邦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量以const,_enum,_inlne替代_#define"><span class="nav-number">1.2.</span> <span class="nav-text">尽量以const, enum, inlne替代 #define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽可能使用const"><span class="nav-number">1.3.</span> <span class="nav-text">尽可能使用const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#确定对象被使用前已先被初始化"><span class="nav-number">1.4.</span> <span class="nav-text">确定对象被使用前已先被初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造/析构/赋值运算"><span class="nav-number">2.</span> <span class="nav-text">构造/析构/赋值运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解C++默默编写并调用哪些函数"><span class="nav-number">2.1.</span> <span class="nav-text">了解C++默默编写并调用哪些函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#若不想使用编译器自动生成的函数，就该明确拒绝"><span class="nav-number">2.2.</span> <span class="nav-text">若不想使用编译器自动生成的函数，就该明确拒绝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为多态基类声明virtual析构函数"><span class="nav-number">2.3.</span> <span class="nav-text">为多态基类声明virtual析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#令operator_=_返回一个reference_to_this"><span class="nav-number">2.4.</span> <span class="nav-text">令operator = 返回一个reference to this</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
-
+</footer>
     </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
-  
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
-  <span class="with-love">
-    <i class="icon-next-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">byhj</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
- </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-  
     
-    
-
-  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
 
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
+});
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
 </script>
 
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+  </div>
 </body>
 </html>
