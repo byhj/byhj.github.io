@@ -5,16 +5,16 @@
   
   <title>Design Pattern | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Creational">
+  <meta name="description" content="Creational创建型模式与对象的创建有关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design Pattern">
 <meta property="og:url" content="http://byhj.github.io/2015/12/20/DesignPattern/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description" content="Creational">
-<meta property="og:updated_time" content="2015-12-20T13:01:50.652Z">
+<meta property="og:description" content="Creational创建型模式与对象的创建有关">
+<meta property="og:updated_time" content="2016-01-01T11:57:19.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Design Pattern">
-<meta name="twitter:description" content="Creational">
+<meta name="twitter:description" content="Creational创建型模式与对象的创建有关">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 13.33px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 13.33px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 13.33px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 16.67px;">DirectX</a> <a href="/tags/Framework/" style="font-size: 13.33px;">Framework</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 13.33px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 12.5px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/Framework/" style="font-size: 12.5px;">Framework</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a>
 					</div>
 				</section>
 				
@@ -208,20 +208,44 @@
   
     
     <div id="toc" class="article-toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Creational"><span class="toc-number">1.</span> <span class="toc-text">Creational</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Factory_Method"><span class="toc-number">1.1.</span> <span class="toc-text">Factory Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract_Factory"><span class="toc-number">1.2.</span> <span class="toc-text">Abstract Factory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Builder"><span class="toc-number">1.3.</span> <span class="toc-text">Builder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Singleton"><span class="toc-number">1.4.</span> <span class="toc-text">Singleton</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototype"><span class="toc-number">1.5.</span> <span class="toc-text">Prototype</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Structural"><span class="toc-number">2.</span> <span class="toc-text">Structural</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Adapter"><span class="toc-number">2.1.</span> <span class="toc-text">Adapter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adapter-1"><span class="toc-number">2.2.</span> <span class="toc-text">Adapter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bridge"><span class="toc-number">2.3.</span> <span class="toc-text">Bridge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Composite"><span class="toc-number">2.4.</span> <span class="toc-text">Composite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decorator"><span class="toc-number">2.5.</span> <span class="toc-text">Decorator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Facade"><span class="toc-number">2.6.</span> <span class="toc-text">Facade</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flyweight"><span class="toc-number">2.7.</span> <span class="toc-text">Flyweight</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proxy"><span class="toc-number">2.8.</span> <span class="toc-text">Proxy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Behavioral"><span class="toc-number">3.</span> <span class="toc-text">Behavioral</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Template_Method"><span class="toc-number">3.1.</span> <span class="toc-text">Template Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chain_Of_Responsibility"><span class="toc-number">3.2.</span> <span class="toc-text">Chain Of Responsibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command"><span class="toc-number">3.3.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interpreter"><span class="toc-number">3.4.</span> <span class="toc-text">Interpreter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator"><span class="toc-number">3.5.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mediator"><span class="toc-number">3.6.</span> <span class="toc-text">Mediator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memento"><span class="toc-number">3.7.</span> <span class="toc-text">Memento</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observer"><span class="toc-number">3.8.</span> <span class="toc-text">Observer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">3.9.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strategy"><span class="toc-number">3.10.</span> <span class="toc-text">Strategy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visitor"><span class="toc-number">3.11.</span> <span class="toc-text">Visitor</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Creational"><span class="toc-number">1.</span> <span class="toc-text">Creational</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Factory_Method"><span class="toc-number">1.1.</span> <span class="toc-text">Factory Method</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Behavioral"><span class="toc-number">2.</span> <span class="toc-text">Behavioral</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Template_Method"><span class="toc-number">2.1.</span> <span class="toc-text">Template Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chain_Of_Responsibility"><span class="toc-number">2.2.</span> <span class="toc-text">Chain Of Responsibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command"><span class="toc-number">2.3.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interpreter"><span class="toc-number">2.4.</span> <span class="toc-text">Interpreter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator"><span class="toc-number">2.5.</span> <span class="toc-text">Iterator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mediator"><span class="toc-number">2.6.</span> <span class="toc-text">Mediator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memento"><span class="toc-number">2.7.</span> <span class="toc-text">Memento</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observer"><span class="toc-number">2.8.</span> <span class="toc-text">Observer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-number">2.9.</span> <span class="toc-text">State</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Strategy"><span class="toc-number">2.10.</span> <span class="toc-text">Strategy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visitor"><span class="toc-number">2.11.</span> <span class="toc-text">Visitor</span></a></li></ol></li></ol>
       <hr/>
     </div>
     
-    <h1 id="Creational">Creational</h1><a id="more"></a>
+    <h1 id="Creational">Creational</h1><p>创建型模式与对象的创建有关<br><a id="more"></a></p>
 <p>Class</p>
-<h2 id="Factory_Method">Factory Method</h2><p>Object</p>
-<h2 id="Abstract_Factory">Abstract Factory</h2><h2 id="Builder">Builder</h2><h2 id="Singleton">Singleton</h2><h2 id="Prototype">Prototype</h2><hr>
-<h1 id="Structural">Structural</h1><p>Class</p>
-<h2 id="Adapter">Adapter</h2><p>Object</p>
-<h2 id="Adapter-1">Adapter</h2><h2 id="Bridge">Bridge</h2><h2 id="Composite">Composite</h2><h2 id="Decorator">Decorator</h2><h2 id="Facade">Facade</h2><h2 id="Flyweight">Flyweight</h2><h2 id="Proxy">Proxy</h2><hr>
-<h1 id="Behavioral">Behavioral</h1><p>Class</p>
-<h2 id="Template_Method">Template Method</h2><p>Object</p>
-<h2 id="Chain_Of_Responsibility">Chain Of Responsibility</h2><h2 id="Command">Command</h2><h2 id="Interpreter">Interpreter</h2><h2 id="Iterator">Iterator</h2><h2 id="Mediator">Mediator</h2><h2 id="Memento">Memento</h2><h2 id="Observer">Observer</h2><h2 id="State">State</h2><h2 id="Strategy">Strategy</h2><h2 id="Visitor">Visitor</h2><hr>
+<h2 id="Factory_Method">Factory Method</h2><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，使一个类的实例化推迟到其子类。<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span></span><br><span class="line"><span class="preprocessor">## Abstract Factory</span></span><br><span class="line">提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Builder</span></span><br><span class="line">将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以产生不同的表示。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Singleton</span></span><br><span class="line">保证一个类仅有一个实例，并提供一个访问它的全局访问点。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Prototype</span></span><br><span class="line">用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</span><br></pre></td></tr></table></figure>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---<span class="preprocessor"></span><br><span class="line"></span><br><span class="line"># Structural</span></span><br><span class="line">处理类或对象的组合。</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">Class</span></span><span class="preprocessor"></span><br><span class="line">## Adapter</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Object</span></span><br><span class="line"><span class="preprocessor">## Adapter</span></span><br><span class="line">将一个类的接口转换成客户端希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</span><br></pre></td></tr></table></figure>
+<p>class Target<br>{<br>public:<br>   virtual ~Target() = default;<br>   virtual std::string Operation() = 0;<br>};</p>
+<p>class Adaptee<br>{<br>public:<br>   virtual  ~Adaptee() = default;<br>   std::string method()<br>   {<br>     return “Adapter”;<br>   }<br>};</p>
+<p>class Adapter: public Target, private Adaptee<br>{<br>public:<br>    string Opration() override<br>    {<br>      return method();<br>    }<br>};<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Bridge</span></span><br><span class="line">将抽象部分与它的实现部分分离，使它们都可以独立地变化。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Composite</span></span><br><span class="line">将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Decorator</span></span><br><span class="line">动态地给一个对象添加一些额外的职责。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Facade</span></span><br><span class="line">为子系统中的一组接口提供一个一致的界面，定义了一个高层接口，使得子系统更加容易使用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Flyweight</span></span><br><span class="line">运用共享技术有效地支持大量细粒度的对象。</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## Proxy</span></span><br><span class="line">为其他对象提供一种代理以控制对这个对象的访问。</span><br></pre></td></tr></table></figure>
+<p>```</p>
+<hr>
+<h1 id="Behavioral">Behavioral</h1><p>对类或对象怎么交互和怎样分配职责进行描述。</p>
+<p>Class</p>
+<h2 id="Template_Method">Template Method</h2><p>　　定义一个操作中的算法的骨架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可<br>重定义该算法的某些特定步骤。</p>
+<p>Object</p>
+<h2 id="Chain_Of_Responsibility">Chain Of Responsibility</h2><p>　　使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系，将这些对象连成一条链，<br>并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<h2 id="Command">Command</h2><p>　　将一个请求封装成一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤消的操作。</p>
+<h2 id="Interpreter">Interpreter</h2><p>　　给定一个句子，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</p>
+<h2 id="Iterator">Iterator</h2><p>　　提供一种方法顺序访问一个聚合对象中的各个元素，而又不需暴露该对象的内部表示。</p>
+<h2 id="Mediator">Mediator</h2><p>　　用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，<br>而且可以独立地改变它们之间的关系。</p>
+<h2 id="Memento">Memento</h2><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可将该对象恢复到原先保存的状态。</p>
+<h2 id="Observer">Observer</h2><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生变化时，所有依赖它的对象都能得到通知并被自动更新。</p>
+<h2 id="State">State</h2><p>允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类。</p>
+<h2 id="Strategy">Strategy</h2><p>定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换，使得算法可独立于使用它的客户而变化。</p>
+<h2 id="Visitor">Visitor</h2><p>表示一个作用于某对象结构中的各元素的操作，它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<hr>
+<p><a href="https://github.com/byhj/DesignPattern.git" target="_blank" rel="external">Source Code</a></p>
 
   
 </div>
@@ -297,7 +321,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 byhj
+    		&copy; 2016 byhj
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
