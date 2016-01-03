@@ -3,18 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>OpenGLES-Android | byhj zzZ~~~</title>
+  <title>深度探索C++对象模型总结 | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="C++对象模型主要解释为：
+
+语言中直接支持面向对象程序设计的部分
+对于各种支持的底层实现机制
+
+关于对象　　C语言中，数据和处理数据的操作时分开声明，而C++采用抽象数据类型进行操作。在C++加上封装并未带来布局成本，在布局以及存取时间上主要的额外负担是由virtual引起的：
+
+virtual function 机制：用以支持一个有效率的“执行期绑定”。
+virtual base blass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenGLES-Android">
-<meta property="og:url" content="http://byhj.github.io/2015/12/20/OpenGLES-Android/index.html">
+<meta property="og:title" content="深度探索C++对象模型总结">
+<meta property="og:url" content="http://byhj.github.io/2015/12/17/C++ObjectModel/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-12-20T13:03:18.569Z">
+<meta property="og:description" content="C++对象模型主要解释为：
+
+语言中直接支持面向对象程序设计的部分
+对于各种支持的底层实现机制
+
+关于对象　　C语言中，数据和处理数据的操作时分开声明，而C++采用抽象数据类型进行操作。在C++加上封装并未带来布局成本，在布局以及存取时间上主要的额外负担是由virtual引起的：
+
+virtual function 机制：用以支持一个有效率的“执行期绑定”。
+virtual base blass">
+<meta property="og:updated_time" content="2016-01-03T13:08:14.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenGLES-Android">
-<meta name="twitter:description">
+<meta name="twitter:title" content="深度探索C++对象模型总结">
+<meta name="twitter:description" content="C++对象模型主要解释为：
+
+语言中直接支持面向对象程序设计的部分
+对于各种支持的底层实现机制
+
+关于对象　　C语言中，数据和处理数据的操作时分开声明，而C++采用抽象数据类型进行操作。在C++加上封装并未带来布局成本，在布局以及存取时间上主要的额外负担是由virtual引起的：
+
+virtual function 机制：用以支持一个有效率的“执行期绑定”。
+virtual base blass">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -168,11 +192,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-OpenGLES-Android" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C++ObjectModel" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/20/OpenGLES-Android/" class="article-date">
-  	<time datetime="2015-12-20T13:03:18.000Z" itemprop="datePublished">2015-12-20</time>
+      <a href="/2015/12/17/C++ObjectModel/" class="article-date">
+  	<time datetime="2015-12-17T13:11:28.000Z" itemprop="datePublished">2015-12-17</time>
 </a>
     </div>
   
@@ -185,7 +209,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      OpenGLES-Android
+      深度探索C++对象模型总结
     </h1>
   
 
@@ -193,6 +217,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -204,11 +232,51 @@
   
     
     <div id="toc" class="article-toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于对象"><span class="toc-number">1.</span> <span class="toc-text">关于对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C++对象模型"><span class="toc-number">1.1.</span> <span class="toc-text">C++对象模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键词所带来的差异"><span class="toc-number">1.2.</span> <span class="toc-text">关键词所带来的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的差异"><span class="toc-number">1.3.</span> <span class="toc-text">对象的差异</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数语意学"><span class="toc-number">2.</span> <span class="toc-text">构造函数语意学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Default_Constructor的构造操作"><span class="toc-number">2.1.</span> <span class="toc-text">Default Constructor的构造操作</span></a></li></ol></li></ol>
       <hr/>
     </div>
     
-    
+    <p>C++对象模型主要解释为：</p>
+<ul>
+<li>语言中直接支持面向对象程序设计的部分</li>
+<li>对于各种支持的底层实现机制</li>
+</ul>
+<h1 id="关于对象">关于对象</h1><p>　　C语言中，数据和处理数据的操作时分开声明，而C++采用抽象数据类型进行操作。在C++加上封装并未带来<br>布局成本，在布局以及存取时间上主要的额外负担是由virtual引起的：</p>
+<ul>
+<li>virtual function 机制：用以支持一个有效率的“执行期绑定”。</li>
+<li>virtual base blass : 用以实现“多次出现在继承体系中的base class, 有一个单一而被共享的实例”。</li>
+<li>多重继承下的一些额外负担。</li>
+</ul>
+<h2 id="C++对象模型">C++对象模型</h2><ul>
+<li>简单对象模型：members本身不放在objects中，object存储指向member的指针。</li>
+<li>表格驱动对象模型：数据与操作分离为两个表格，object存储指向两个表格的指针。</li>
+<li>C++对象模型：每一个class产生一堆指向virtual functions的指针，放在virtual table(vtbl)中，每一个class<pre><code><span class="keyword">object</span>安插一个vptr指向相关的<span class="keyword">virtual</span> table，每一个<span class="keyword">class</span>关联的type_info objects信息。
+</code></pre></li>
+</ul>
+<h2 id="关键词所带来的差异">关键词所带来的差异</h2><p>当一个人感觉到比较好的时候，使用struct取代class，注意struct在C++中的逻辑意义和如何正确使用。</p>
+<h2 id="对象的差异">对象的差异</h2><p>C++程序设计模型直接支持三种程序设计范式：</p>
+<ul>
+<li>程序模型</li>
+<li>抽象数据类型模型</li>
+<li>面向对象模型<br>纯粹以一种范式编写程序，有助于整体行为的良好稳固。</li>
+</ul>
+<p>C++以下列方式支持多态：</p>
+<ul>
+<li>经由一组隐式的转化操作，例如把derived class指针转化为一个指向其public bass type的指针</li>
+<li>经由virtual function</li>
+<li>经由dynamic_cast和typeid运算符<br>多态的主要用途是经由一个共同的接口来影响类型的封装。</li>
+</ul>
+<p>需要多少内存才能够表示一个class object:</p>
+<ul>
+<li>其nonstatic data members的总和大小</li>
+<li>任何alignment的需要而填补的空间</li>
+<li>为了支持virtual 而由内部产生的任何额外负担</li>
+</ul>
+<h1 id="构造函数语意学">构造函数语意学</h1><h2 id="Default_Constructor的构造操作">Default Constructor的构造操作</h2><p>default constructors在需要的时候被编译器产生出来，但需要注意的是这种需要时编译器方面的而不是程序的需要。<br>一个由于为声明constructor函数而被隐式声明的default constructor将是一个trivial constructor，在某些情况<br>编译器将会生成nontrivial default constructor.</p>
+<ul>
+<li>带有Defulat Constructor 的Member Class Object</li>
+</ul>
+
   
 </div>
 
@@ -218,18 +286,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/20/Direct3D-Math/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/17/MoreEffectiveC++/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Direct3D-Math
+          More Effective C++总结
         
       </div>
     </a>
   
   
-    <a href="/2015/12/20/DesignPattern/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Design Pattern</div>
+    <a href="/2015/12/16/Cocos2dx-AndroidStudio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocos2dx-AndroidStudio</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -258,7 +326,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="OpenGLES-Android" data-title="OpenGLES-Android" data-url="http://byhj.github.io/2015/12/20/OpenGLES-Android/"></div>
+	<div class="ds-thread" data-thread-key="C++ObjectModel" data-title="深度探索C++对象模型总结" data-url="http://byhj.github.io/2015/12/17/C++ObjectModel/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
