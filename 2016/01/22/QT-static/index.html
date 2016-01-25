@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>categories | byhj zzZ~~~</title>
+  <title>QT-static | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://byhj.github.io/categories/index.html">
+  <meta name="description" content="IntroductionContent安装python, perl, ruby.打开对应版本的开发人员命令提示， cd到Qt目录执行环境设置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT-static">
+<meta property="og:url" content="http://byhj.github.io/2016/01/22/QT-static/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-08-30T10:21:09.334Z">
+<meta property="og:description" content="IntroductionContent安装python, perl, ruby.打开对应版本的开发人员命令提示， cd到Qt目录执行环境设置。">
+<meta property="og:updated_time" content="2016-01-25T03:46:08.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description">
+<meta name="twitter:title" content="QT-static">
+<meta name="twitter:description" content="IntroductionContent安装python, perl, ruby.打开对应版本的开发人员命令提示， cd到Qt目录执行环境设置。">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -168,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-QT-static" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/categories/index.html" class="article-date">
-  	<time datetime="2015-08-30T01:44:26.000Z" itemprop="datePublished">2015-08-30</time>
+      <a href="/2016/01/22/QT-static/" class="article-date">
+  	<time datetime="2016-01-22T02:26:45.000Z" itemprop="datePublished">2016-01-22</time>
 </a>
     </div>
   
@@ -185,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      QT-static
     </h1>
   
 
@@ -193,6 +193,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt静态编译-MSVC/">Qt静态编译-MSVC</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -204,11 +208,17 @@
   
     
     <div id="toc" class="article-toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Content"><span class="toc-number">2.</span> <span class="toc-text">Content</span></a></li></ol>
       <hr/>
     </div>
     
-    
+    <h1 id="Introduction">Introduction</h1><h1 id="Content">Content</h1><p>安装python, perl, ruby.<br>打开对应版本的开发人员命令提示， cd到Qt目录执行环境设置。</p>
+<a id="more"></a>
+<p>设置：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">QMAKE_<span class="built_in">CFLAGS_RELEASE</span>    = -O2 -MD -Zc:strictStrings</span><br><span class="line"></span><br><span class="line">QMAKE_<span class="built_in">CFLAGS_RELEASE_WITH_DEBUGINFO</span> += -O2 -MD -Zi -Zc:strictStrings</span><br><span class="line"></span><br><span class="line">QMAKE_<span class="built_in">CFLAGS_DEBUG</span>      = -Zi -MDd</span><br><span class="line"></span><br><span class="line"><span class="comment">//将以上改为</span></span><br><span class="line"></span><br><span class="line">QMAKE_<span class="built_in">CFLAGS_RELEASE</span>    = -O2 -MT -Zc:strictStrings</span><br><span class="line"></span><br><span class="line">QMAKE_<span class="built_in">CFLAGS_RELEASE_WITH_DEBUGINFO</span> += -O2 -MT -Zi -Zc:strictStrings</span><br><span class="line"></span><br><span class="line">QMAKE_<span class="built_in">CFLAGS_DEBUG</span>      = -Zi -MTd</span><br></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure -confirm-license -opensource -mp -platform win32-msvc2013 -debug-and-<span class="operator"><span class="keyword">release</span> -<span class="keyword">static</span> -prefix <span class="string">" C:\Qt\5.5.0-static-vs2013"</span> -qt-<span class="keyword">sql</span>-sqlite -qt-<span class="keyword">sql</span>-odbc -<span class="keyword">plugin</span>-<span class="keyword">sql</span>-sqlite -<span class="keyword">plugin</span>-<span class="keyword">sql</span>-odbc -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -qt-freetype -<span class="keyword">no</span>-qml-debug -<span class="keyword">no</span>-angle -nomake tests -nomake examples -<span class="keyword">skip</span> qtwebkit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmake</span><br><span class="line">nmake <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+
   
 </div>
 
@@ -216,6 +226,16 @@
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/25/OpenGL-Math/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenGL-Math</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -239,7 +259,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="categories" data-url="http://byhj.github.io/categories/index.html"></div>
+	<div class="ds-thread" data-thread-key="QT-static" data-title="QT-static" data-url="http://byhj.github.io/2016/01/22/QT-static/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -283,7 +303,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
