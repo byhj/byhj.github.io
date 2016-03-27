@@ -572,7 +572,8 @@
     
     <div class="article-entry" itemprop="articleBody">
   
-    <h1 id="让自己习惯C++">让自己习惯C++</h1><h2 id="视C++为一个语言联邦_当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：">视C++为一个语言联邦　当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：</h2><ul>
+    <h1 id="让自己习惯C++">让自己习惯C++</h1><h2 id="视C++为一个语言联邦">视C++为一个语言联邦　</h2><p>当今的C++是个多重范型编程语言(过程形式，面向对象形式，函数形式，泛型形式，元编程形式)，<br>我们应该将C++视为由语言组成的联邦而非单一语言,C++主要分为以下四个次语言：</p>
+<ul>
 <li>C:<br>C++部分继承了C的语法，这个部分没有模板，重载，继承，异常等语法。</li>
 <li>Object-Oriented C++:<br>包含classes(构造析构)， 封装，继承，多态。</li>
 <li>Template C++:<br>泛型编程的基础，带来了所谓的Template metaprogramming(TMP)编程。</li>
@@ -698,7 +699,6 @@
     
     <div class="article-entry" itemprop="articleBody">
   
-    
     <p>C++对象模型主要解释为：</p>
 <ul>
 <li>语言中直接支持面向对象程序设计的部分</li>
@@ -710,36 +710,6 @@
 <li>virtual base blass : 用以实现“多次出现在继承体系中的base class, 有一个单一而被共享的实例”。</li>
 <li>多重继承下的一些额外负担。</li>
 </ul>
-<h2 id="C++对象模型">C++对象模型</h2><ul>
-<li>简单对象模型：members本身不放在objects中，object存储指向member的指针。</li>
-<li>表格驱动对象模型：数据与操作分离为两个表格，object存储指向两个表格的指针。</li>
-<li>C++对象模型：每一个class产生一堆指向virtual functions的指针，放在virtual table(vtbl)中，每一个class<pre><code><span class="keyword">object</span>安插一个vptr指向相关的<span class="keyword">virtual</span> table，每一个<span class="keyword">class</span>关联的type_info objects信息。
-</code></pre></li>
-</ul>
-<h2 id="关键词所带来的差异">关键词所带来的差异</h2><p>当一个人感觉到比较好的时候，使用struct取代class，注意struct在C++中的逻辑意义和如何正确使用。</p>
-<h2 id="对象的差异">对象的差异</h2><p>C++程序设计模型直接支持三种程序设计范式：</p>
-<ul>
-<li>程序模型</li>
-<li>抽象数据类型模型</li>
-<li>面向对象模型<br>纯粹以一种范式编写程序，有助于整体行为的良好稳固。</li>
-</ul>
-<p>C++以下列方式支持多态：</p>
-<ul>
-<li>经由一组隐式的转化操作，例如把derived class指针转化为一个指向其public bass type的指针</li>
-<li>经由virtual function</li>
-<li>经由dynamic_cast和typeid运算符<br>多态的主要用途是经由一个共同的接口来影响类型的封装。</li>
-</ul>
-<p>需要多少内存才能够表示一个class object:</p>
-<ul>
-<li>其nonstatic data members的总和大小</li>
-<li>任何alignment的需要而填补的空间</li>
-<li>为了支持virtual 而由内部产生的任何额外负担</li>
-</ul>
-<h1 id="构造函数语意学">构造函数语意学</h1><h2 id="Default_Constructor的构造操作">Default Constructor的构造操作</h2><p>default constructors在需要的时候被编译器产生出来，但需要注意的是这种需要时编译器方面的而不是程序的需要。<br>一个由于为声明constructor函数而被隐式声明的default constructor将是一个trivial constructor，在某些情况<br>编译器将会生成nontrivial default constructor.</p>
-<ul>
-<li>带有Defulat Constructor 的Member Class Object</li>
-</ul>
-
   
 </div>
 
@@ -753,6 +723,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/17/C++ObjectModel/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
