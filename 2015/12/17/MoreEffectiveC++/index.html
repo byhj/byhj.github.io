@@ -5,16 +5,16 @@
   
   <title>More Effective C++总结 | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
+  <meta name="description" content="基础议题仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="More Effective C++总结">
 <meta property="og:url" content="http://byhj.github.io/2015/12/17/MoreEffectiveC++/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
-<meta property="og:updated_time" content="2015-12-18T15:36:54.000Z">
+<meta property="og:description" content="基础议题仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointer">
+<meta property="og:updated_time" content="2016-03-30T12:15:28.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="More Effective C++总结">
-<meta name="twitter:description" content="1.仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以">
+<meta name="twitter:description" content="基础议题仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointer">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -208,22 +208,56 @@
   
     
     <div id="toc" class="article-toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-仔细区别pointers和references"><span class="toc-number">1.</span> <span class="toc-text">1.仔细区别pointers和references</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-最好使用C++转型操作符"><span class="toc-number">2.</span> <span class="toc-text">2.最好使用C++转型操作符</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础议题"><span class="toc-number">1.</span> <span class="toc-text">基础议题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#仔细区别pointers和references"><span class="toc-number">1.1.</span> <span class="toc-text">仔细区别pointers和references</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最好使用C++转型操作符"><span class="toc-number">1.2.</span> <span class="toc-text">最好使用C++转型操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绝对不要以多态方式处理数组"><span class="toc-number">1.3.</span> <span class="toc-text">绝对不要以多态方式处理数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非必要不提供default_constructor"><span class="toc-number">1.4.</span> <span class="toc-text">非必要不提供default constructor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作符"><span class="toc-number">2.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对定制的“类型转换函数”保持警觉"><span class="toc-number">2.1.</span> <span class="toc-text">对定制的“类型转换函数”保持警觉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分increment_/_decrement操作符的前置和后置形式"><span class="toc-number">2.2.</span> <span class="toc-text">区分increment / decrement操作符的前置和后置形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#千万不要重载_&&_||_和_，操作符"><span class="toc-number">2.3.</span> <span class="toc-text">千万不要重载 && || 和 ，操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解各种不同意义的new和delete"><span class="toc-number">2.4.</span> <span class="toc-text">了解各种不同意义的new和delete</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异常"><span class="toc-number">3.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用destructors避免内存泄露"><span class="toc-number">3.1.</span> <span class="toc-text">利用destructors避免内存泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在constructors内阻止资源泄露"><span class="toc-number">3.2.</span> <span class="toc-text">在constructors内阻止资源泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止异常流出destructors之外"><span class="toc-number">3.3.</span> <span class="toc-text">禁止异常流出destructors之外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异"><span class="toc-number">3.4.</span> <span class="toc-text">了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以by_reference方式捕捉exceptions"><span class="toc-number">3.5.</span> <span class="toc-text">以by reference方式捕捉exceptions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明智运用exception_specifications"><span class="toc-number">3.6.</span> <span class="toc-text">明智运用exception specifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解异常处理的成本"><span class="toc-number">3.7.</span> <span class="toc-text">了解异常处理的成本</span></a></li></ol></li></ol>
       <hr/>
     </div>
     
-    <h1 id="1-仔细区别pointers和references">1.仔细区别pointers和references</h1><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有nullpointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，而reference总是指向（代表）它最初获得的那个对象。<br>　　在实现某些操作符，例如operator[], 使用reference能够比较自然得到“被当做assignment赋值对象”的功能。</p>
+    <h1 id="基础议题">基础议题</h1><h2 id="仔细区别pointers和references">仔细区别pointers和references</h2><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定<br>使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，<br>而reference总是指向（代表）它最初获得的那个对象。在实现某些操作符，例如operator[], 使用reference能够比较自然得到<br>“被当做assignment赋值对象”的功能。</p>
  <a id="more"></a>
-<hr>
-<h1 id="2-最好使用C++转型操作符">2.最好使用C++转型操作符</h1><p>　　由于旧式C语言的转型几乎可以将任何类型转换为其它类型，而没有给出每次转型更精确的意图，加上旧式转型的小括号方式在程序中可能难以辨识，所以最好才采用C++新的转型类型操作符：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">static_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
+<h2 id="最好使用C++转型操作符">最好使用C++转型操作符</h2><p>　　由于旧式C语言的转型几乎可以将任何类型转换为其它类型，而没有给出每次转型更精确的意图，加上旧式转型的小括号方式在程序中可能难以辨识，所以最好才采用C++新的转型类型操作符：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">static_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
 <p>　　这是静态类型转换操作，允许基本类型之间的相互转换，但不能移除表达式的常量性，我们采用下面转换来改变表达式的常量性或易变性，这个操作由编译器执行。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">const_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
 <p>　　但要执行继承体系中“安全的向下转型或跨系转型动作”时，使用下面动态类型转换符。需要注意的是它无法应用在缺乏虚函数的类型身上，也不能改变类型的常量性。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">dynamic_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
 <p>　　最后一种转型操作几乎与编译平台相关，所以它不具备移植性，我们常用它来进行转换“函数指针”类型<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　<span class="keyword">reinterpret_cast</span>&lt;type&gt;(expression)</span><br></pre></td></tr></table></figure></p>
-<p>　　当你的编译平台不能支持新式转型操作时，你可以考虑采用宏去模拟这些语法：</p>
-<pre><code><span class="hexcolor">#def</span>ine <span class="function"><span class="title">static_cast</span><span class="params">(TYPE, EXPR)</span></span>       ((TYPE) (EXPR))
-<span class="hexcolor">#def</span>ine <span class="function"><span class="title">const_cast</span><span class="params">(TYPE, EXPR)</span></span>        ((TYPE) (EXPR))
-<span class="hexcolor">#def</span>ine <span class="function"><span class="title">reinterpret_cast</span><span class="params">(TYPE, EXPR)</span></span>  ((TYPE) (EXPR))
-</code></pre>
+<p>　　当你的编译平台不能支持新式转型操作时，你可以考虑采用宏去模拟这些语法：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hexcolor">#def</span>ine <span class="function"><span class="title">static_cast</span><span class="params">(TYPE, EXPR)</span></span>       ((TYPE) (EXPR))</span><br><span class="line"><span class="hexcolor">#def</span>ine <span class="function"><span class="title">const_cast</span><span class="params">(TYPE, EXPR)</span></span>        ((TYPE) (EXPR))</span><br><span class="line"><span class="hexcolor">#def</span>ine <span class="function"><span class="title">reinterpret_cast</span><span class="params">(TYPE, EXPR)</span></span>  ((TYPE) (EXPR))</span><br></pre></td></tr></table></figure></p>
+<h2 id="绝对不要以多态方式处理数组">绝对不要以多态方式处理数组</h2><p>　　多态和指针算术不能混用，数组访问时是指针算术表达式。通过base class指针删除一个由derived classes objects构成的数组，，其结果未定义。<br>当以数组形式传递时，编译器对数组对象的理解是声明的部分，而不是你想要的多态效果。</p>
+<h2 id="非必要不提供default_constructor">非必要不提供default constructor</h2><p>　　default constructor在没有任何外来信息的情况将对象初始化，当现实世界往往需要外来信息进行操作。当你不提供default constructor时,<br>没有方法为数组对象指定constructor自变量，它们同样将不适用于许多template-based container classes.虽然有着这些限制，但是在一般情况下还是<br>不要提供default constructor。</p>
+<hr>
+<h1 id="操作符">操作符</h1><h2 id="对定制的“类型转换函数”保持警觉">对定制的“类型转换函数”保持警觉</h2><p>　　C++允许编译器在不同类型之间执行隐式转换。类型转换的问题在于，在你从未打算也未预期的情况下，此类函数可能会被调用，而其结果可能是不正确<br>，不直观的程序行为，很难调试。存在着两种函数转换：</p>
+<ul>
+<li><p>隐式类型转换操作符 ：关键词operator后加上一个类型名称<br>　　这类转换我们可以将operator的重载换成显式的转换专有函数，string的c_str()函数就是个很好的例子。</p>
+</li>
+<li><p>单变量constructors函数：会执行隐式的转换为类对象<br>　　使用explicit能够避免这一问题，编译器不能因隐式类型转换的需要调用它们，但是你还是可以通过显式类型的转换。当你无法使用explicit时，可以使用<br>proxy技术，将单一参数转换为一个内部类表示，这样做的话就可以执行原来的构造函数又避免类型转换动作，因为这样的转换需要两次，不合法。</p>
+</li>
+</ul>
+<h2 id="区分increment_/_decrement操作符的前置和后置形式">区分increment / decrement操作符的前置和后置形式</h2><p>　　通过添加一个int自变量进行后置版本的识别，编译器会为此int指定为0值，前置式返回一个reference，后置式返回返回一个const对象。<br>后置式返回的const能够阻止++++之类的操作，这种操作和内建类型的行为不一致，即使可以这样其行为也不是你预期那样。除此之外，后置<br>版本返回原来的副本也会对效率带来影响。</p>
+<h2 id="千万不要重载_&amp;&amp;_||_和_，操作符">千万不要重载 &amp;&amp; || 和 ，操作符</h2><p>　　重载这些操作符会让程序从短路求值语意向函数调用转变，这两者是不同的。当函数调用动作被执行，所有参数值都必须评估完成。C++语言规范并未<br>明确定义函数调用动作中各参数的评估顺序。对于逗号表达式，从左往右进行评估，最后整个逗号表达式的结果以逗号右侧的值为代表。而当你重载逗号<br>操作符后，不能得到这些保证。</p>
+<h2 id="了解各种不同意义的new和delete">了解各种不同意义的new和delete</h2><p>　　new operator由语言内置，不能被改变意义，总是做相同的事情：</p>
+<ul>
+<li>它分配足够的内存，用来放置某些类型的对象。</li>
+<li>调用一个constructor，为刚才分配的内存中的那个对象设定初值。<br>　　你能够进行改变的时用来容纳对象的那块内存的分配行为，new operator调用某个函数，执行必要的内存分配动作，你可以重写或重载那个函数，改变其行为。<br>这个函数称为operator new.</li>
+</ul>
+<p>‘’’<br>void * operator new(size_t size);</p>
+<p>‘’’<br>返回一个指针，指向一块原始的，未设初值的内存，当你重载这个operator new时，size_t是必须的第一参数。它只负责分配内存，不进行初始化。<br>你可以使用placement new对分配好的原始内存，在上面构建对象。</p>
+<p>　　为了避免资源泄露，每一个动态分配行为都必须匹配一个相应但相反的释放动作，operator delete对于内建的delete operator关系与上面类似。<br>内存释放动作由函数operator delete执行，如果你只打算处理原始的，未设初值的内存，应该使用operator new和operator delete(相当于malloc和free)，<br>而不是new operator和delete operator.<br>　　数组版本的new还是那个new operator但内存以一个名为operator new[]的函数进行分配内存（array new)，delete也是同样的道理。数组版与单一版的<br>new operator所调用的constructor数量不同。</p>
+<hr>
+<h1 id="异常">异常</h1><h2 id="利用destructors避免内存泄露">利用destructors避免内存泄露</h2><p>　　以一个对象存放“必须自动释放的资源”并依赖该对象的destructor释放，可以在exceptions出现时避免资源泄露。</p>
+<h2 id="在constructors内阻止资源泄露">在constructors内阻止资源泄露</h2><p>　　exception的发生可能由于operator new无法分配足够内存时，这时控制权被移出constructor之外，而析构函数对已构造完成的对象才进行<br>释放操作。这个时候，我们需要将所有可能的exceptioons捕捉起来，执行某些清理工作，然后从新抛出exception使它继续传播出去。当member initialization\<br>lists时，把try catch放在private member functions内，然后进行处理。</p>
+<h2 id="禁止异常流出destructors之外">禁止异常流出destructors之外</h2><p>　　destructor在两种情况下会被调用：</p>
+<ul>
+<li>当对象在正常状态下被销毁，也就是当它离开了它的生存空间或是被明确地删除</li>
+<li>当对象在exception处理机制的statck-unwinding(展开)机制-销毁<br>可以避免terminate函数在exception传播过程的stack-unwinding， 可以协助确保destructors完成其应该完成的所有的事情。</li>
+</ul>
+<h2 id="了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异">了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异</h2><p>　　函数参数和exceptions的传递方式都有三种，by value, vy reference, by pointer。但是你调用一个函数，控制权最终会回到调用端。<br>而当你抛出一个exception,控制权不会再回到抛出端。不论exception是以哪种方式参数传递，都会发生复制行为，catch得到是副本，这个复制行为<br>是由对象的copy constructor执行的，该复制动作永远是以对象的静态类型为本。<br>　　exceptions与catch子句相匹配过程中，仅有两种转换可以发生：</p>
+<ul>
+<li>继承架构中的类转换</li>
+<li>从一个“有型指针”转为”无型指针”</li>
+</ul>
+<h2 id="以by_reference方式捕捉exceptions">以by reference方式捕捉exceptions</h2><p>　　catch by reference可以避免对象删除问题。</p>
+<h2 id="明智运用exception_specifications">明智运用exception specifications</h2><h2 id="了解异常处理的成本">了解异常处理的成本</h2><ul>
+<li>必须付出一些空间，放置某些数据结构（记录着那些对象已被完全构造）</li>
+<li>try语句块</li>
+</ul>
+
   
 </div>
 
@@ -233,18 +267,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/17/EffectiveC++/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/17/C++ObjectModel/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Effective C++总结
+          深度探索C++对象模型总结
         
       </div>
     </a>
   
   
-    <a href="/2015/12/17/C++ObjectModel/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">深度探索C++对象模型总结</div>
+    <a href="/2015/12/16/Cocos2dx-AndroidStudio/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocos2dx-AndroidStudio</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
