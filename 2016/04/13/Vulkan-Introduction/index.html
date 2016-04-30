@@ -3,18 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Direct3D-Framework | byhj zzZ~~~</title>
+  <title>Vulkan | byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="Devices and Queues
+Command Buffers
+Synchronmization
+Render pass
+Shaders
+Pipelines
+Memory allocation
+Resource Creation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Direct3D-Framework">
-<meta property="og:url" content="http://byhj.github.io/2015/12/25/Direct3D-Framework/index.html">
+<meta property="og:title" content="Vulkan">
+<meta property="og:url" content="http://byhj.github.io/2016/04/13/Vulkan-Introduction/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-12-25T11:21:12.067Z">
+<meta property="og:description" content="Devices and Queues
+Command Buffers
+Synchronmization
+Render pass
+Shaders
+Pipelines
+Memory allocation
+Resource Creation">
+<meta property="og:updated_time" content="2016-04-30T15:03:27.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Direct3D-Framework">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Vulkan">
+<meta name="twitter:description" content="Devices and Queues
+Command Buffers
+Synchronmization
+Render pass
+Shaders
+Pipelines
+Memory allocation
+Resource Creation">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -97,7 +118,7 @@
 							
 								<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+								<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
 					        
@@ -108,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 12.5px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/Framework/" style="font-size: 12.5px;">Framework</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 10px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a> <a href="/tags/Vulkan/" style="font-size: 10px;">Vulkan</a>
 					</div>
 				</section>
 				
@@ -159,7 +180,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
 			        
@@ -168,11 +189,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Direct3D-Framework" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Vulkan-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/25/Direct3D-Framework/" class="article-date">
-  	<time datetime="2015-12-25T02:25:23.000Z" itemprop="datePublished">2015-12-25</time>
+      <a href="/2016/04/13/Vulkan-Introduction/" class="article-date">
+  	<time datetime="2016-04-13T02:27:26.000Z" itemprop="datePublished">2016-04-13</time>
 </a>
     </div>
   
@@ -185,7 +206,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Direct3D-Framework
+      Vulkan
     </h1>
   
 
@@ -194,7 +215,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Direct3D/">Direct3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vulkan/">Vulkan</a></li></ul>
 	</div>
 
         
@@ -208,11 +229,18 @@
   
     
     <div id="toc" class="article-toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Devices_and_Queues"><span class="toc-number">1.</span> <span class="toc-text">Devices and Queues</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Command_Buffers"><span class="toc-number">2.</span> <span class="toc-text">Command Buffers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronmization"><span class="toc-number">3.</span> <span class="toc-text">Synchronmization</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Render_pass"><span class="toc-number">4.</span> <span class="toc-text">Render pass</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Shaders"><span class="toc-number">5.</span> <span class="toc-text">Shaders</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pipelines"><span class="toc-number">6.</span> <span class="toc-text">Pipelines</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Memory_allocation"><span class="toc-number">7.</span> <span class="toc-text">Memory allocation</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Resource_Creation"><span class="toc-number">8.</span> <span class="toc-text">Resource Creation</span></a></li></ol>
       <hr/>
     </div>
     
-    
+    <h1 id="Devices_and_Queues">Devices and Queues</h1><hr>
+<h1 id="Command_Buffers">Command Buffers</h1><hr>
+<h1 id="Synchronmization">Synchronmization</h1><hr>
+<h1 id="Render_pass">Render pass</h1><hr>
+<h1 id="Shaders">Shaders</h1><hr>
+<h1 id="Pipelines">Pipelines</h1><hr>
+<h1 id="Memory_allocation">Memory allocation</h1><hr>
+<h1 id="Resource_Creation">Resource Creation</h1>
   
 </div>
 
@@ -222,18 +250,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/25/GLFW3-AntTweakBar/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          在GLFW3中使用AntTweakBar
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/25/OpenGL-GLUT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OpenGL-GLUT</div>
+    <a href="/2016/01/22/QT-static/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QT-static</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -262,7 +281,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Direct3D-Framework" data-title="Direct3D-Framework" data-url="http://byhj.github.io/2015/12/25/Direct3D-Framework/"></div>
+	<div class="ds-thread" data-thread-key="Vulkan-Introduction" data-title="Vulkan" data-url="http://byhj.github.io/2016/04/13/Vulkan-Introduction/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

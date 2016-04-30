@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://byhj.github.io/2015/12/17/MoreEffectiveC++/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
 <meta property="og:description" content="基础议题仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointer">
-<meta property="og:updated_time" content="2016-03-30T12:15:28.145Z">
+<meta property="og:updated_time" content="2016-04-30T15:03:27.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="More Effective C++总结">
 <meta name="twitter:description" content="基础议题仔细区别pointers和referencesPointers和references在某些方面做着同样的事情，但两者还是有所区别：　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointer">
@@ -97,7 +97,7 @@
 							
 								<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+								<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
 					        
@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 12.5px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/Framework/" style="font-size: 12.5px;">Framework</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 10px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a> <a href="/tags/Vulkan/" style="font-size: 10px;">Vulkan</a>
 					</div>
 				</section>
 				
@@ -159,7 +159,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/byhj" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/byhj" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="/" title="weibo">weibo</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/byhj" title="zhihu">zhihu</a>
 			        
@@ -208,7 +208,7 @@
   
     
     <div id="toc" class="article-toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础议题"><span class="toc-number">1.</span> <span class="toc-text">基础议题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#仔细区别pointers和references"><span class="toc-number">1.1.</span> <span class="toc-text">仔细区别pointers和references</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最好使用C++转型操作符"><span class="toc-number">1.2.</span> <span class="toc-text">最好使用C++转型操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绝对不要以多态方式处理数组"><span class="toc-number">1.3.</span> <span class="toc-text">绝对不要以多态方式处理数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非必要不提供default_constructor"><span class="toc-number">1.4.</span> <span class="toc-text">非必要不提供default constructor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作符"><span class="toc-number">2.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对定制的“类型转换函数”保持警觉"><span class="toc-number">2.1.</span> <span class="toc-text">对定制的“类型转换函数”保持警觉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分increment_/_decrement操作符的前置和后置形式"><span class="toc-number">2.2.</span> <span class="toc-text">区分increment / decrement操作符的前置和后置形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#千万不要重载_&&_||_和_，操作符"><span class="toc-number">2.3.</span> <span class="toc-text">千万不要重载 && || 和 ，操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解各种不同意义的new和delete"><span class="toc-number">2.4.</span> <span class="toc-text">了解各种不同意义的new和delete</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异常"><span class="toc-number">3.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用destructors避免内存泄露"><span class="toc-number">3.1.</span> <span class="toc-text">利用destructors避免内存泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在constructors内阻止资源泄露"><span class="toc-number">3.2.</span> <span class="toc-text">在constructors内阻止资源泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止异常流出destructors之外"><span class="toc-number">3.3.</span> <span class="toc-text">禁止异常流出destructors之外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异"><span class="toc-number">3.4.</span> <span class="toc-text">了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以by_reference方式捕捉exceptions"><span class="toc-number">3.5.</span> <span class="toc-text">以by reference方式捕捉exceptions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明智运用exception_specifications"><span class="toc-number">3.6.</span> <span class="toc-text">明智运用exception specifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解异常处理的成本"><span class="toc-number">3.7.</span> <span class="toc-text">了解异常处理的成本</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础议题"><span class="toc-number">1.</span> <span class="toc-text">基础议题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#仔细区别pointers和references"><span class="toc-number">1.1.</span> <span class="toc-text">仔细区别pointers和references</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最好使用C++转型操作符"><span class="toc-number">1.2.</span> <span class="toc-text">最好使用C++转型操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绝对不要以多态方式处理数组"><span class="toc-number">1.3.</span> <span class="toc-text">绝对不要以多态方式处理数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非必要不提供default_constructor"><span class="toc-number">1.4.</span> <span class="toc-text">非必要不提供default constructor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作符"><span class="toc-number">2.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对定制的“类型转换函数”保持警觉"><span class="toc-number">2.1.</span> <span class="toc-text">对定制的“类型转换函数”保持警觉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分increment_/_decrement操作符的前置和后置形式"><span class="toc-number">2.2.</span> <span class="toc-text">区分increment / decrement操作符的前置和后置形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#千万不要重载_&&_||_和_，操作符"><span class="toc-number">2.3.</span> <span class="toc-text">千万不要重载 && || 和 ，操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解各种不同意义的new和delete"><span class="toc-number">2.4.</span> <span class="toc-text">了解各种不同意义的new和delete</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异常"><span class="toc-number">3.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用destructors避免内存泄露"><span class="toc-number">3.1.</span> <span class="toc-text">利用destructors避免内存泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在constructors内阻止资源泄露"><span class="toc-number">3.2.</span> <span class="toc-text">在constructors内阻止资源泄露</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁止异常流出destructors之外"><span class="toc-number">3.3.</span> <span class="toc-text">禁止异常流出destructors之外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异"><span class="toc-number">3.4.</span> <span class="toc-text">了解“抛出一个exception”与”传递一个参数”或“调用一个虚函数”之间的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以by_reference方式捕捉exceptions"><span class="toc-number">3.5.</span> <span class="toc-text">以by reference方式捕捉exceptions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明智运用exception_specifications"><span class="toc-number">3.6.</span> <span class="toc-text">明智运用exception specifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解异常处理的成本"><span class="toc-number">3.7.</span> <span class="toc-text">了解异常处理的成本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#效率"><span class="toc-number">4.</span> <span class="toc-text">效率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#谨记80-20法则"><span class="toc-number">4.1.</span> <span class="toc-text">谨记80-20法则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#考虑使用lazy_evaluation(缓式评估)"><span class="toc-number">4.2.</span> <span class="toc-text">考虑使用lazy evaluation(缓式评估)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分期摊还预期的计算成本。"><span class="toc-number">4.3.</span> <span class="toc-text">分期摊还预期的计算成本。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解临时对象的来源"><span class="toc-number">4.4.</span> <span class="toc-text">了解临时对象的来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协助完成返回值优化（RVO)"><span class="toc-number">4.5.</span> <span class="toc-text">协助完成返回值优化（RVO)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用重载技术避免隐式类型转换"><span class="toc-number">4.6.</span> <span class="toc-text">利用重载技术避免隐式类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#考虑以操作符复合形式取代其独身形式"><span class="toc-number">4.7.</span> <span class="toc-text">考虑以操作符复合形式取代其独身形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#考虑使用其他程序库"><span class="toc-number">4.8.</span> <span class="toc-text">考虑使用其他程序库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解virtual_functions,_multiple_inheritance,_virtual_base_class,_runtime_type_identification的成本"><span class="toc-number">4.9.</span> <span class="toc-text">了解virtual functions, multiple inheritance, virtual base class, runtime type identification的成本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#技术"><span class="toc-number">5.</span> <span class="toc-text">技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#将constructor_和_non-member_functions虚化"><span class="toc-number">5.1.</span> <span class="toc-text">将constructor 和 non-member functions虚化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限制某个class所能产生的对象数量"><span class="toc-number">5.2.</span> <span class="toc-text">限制某个class所能产生的对象数量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要求或禁止对象产生于heap之中"><span class="toc-number">5.3.</span> <span class="toc-text">要求或禁止对象产生于heap之中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#智能指针"><span class="toc-number">5.4.</span> <span class="toc-text">智能指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxy_classes代理类"><span class="toc-number">5.5.</span> <span class="toc-text">proxy classes代理类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#杂项讨论"><span class="toc-number">6.</span> <span class="toc-text">杂项讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在未来时态下发展程序"><span class="toc-number">6.1.</span> <span class="toc-text">在未来时态下发展程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将非尾端类（non-leaf_classes）设计为抽象类"><span class="toc-number">6.2.</span> <span class="toc-text">将非尾端类（non-leaf classes）设计为抽象类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何在同一个程序中结合C++和C"><span class="toc-number">6.3.</span> <span class="toc-text">如何在同一个程序中结合C++和C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让自己习惯于标准C++语言"><span class="toc-number">6.4.</span> <span class="toc-text">让自己习惯于标准C++语言</span></a></li></ol></li></ol>
       <hr/>
     </div>
     
@@ -257,6 +257,94 @@
 <li>必须付出一些空间，放置某些数据结构（记录着那些对象已被完全构造）</li>
 <li>try语句块</li>
 </ul>
+<hr>
+<h1 id="效率">效率</h1><h2 id="谨记80-20法则">谨记80-20法则</h2><p>　　软件的整体性能几乎总是有其构成要素的一小部分决定。借助程序分析器查找出瓶颈在哪一部分，然后再进行优化。</p>
+<h2 id="考虑使用lazy_evaluation(缓式评估)">考虑使用lazy evaluation(缓式评估)</h2><ul>
+<li>Reference Counting (引用计数) ：在你真正需要之前，不必着急为某物做一个副本，可以采用拖延政策直到需要修改时才提供副本操作。</li>
+<li>区分读和写 ： operator[]的读写区分</li>
+<li>Lazy Fetching（缓式取出）：避免非必要的数据库读取动作</li>
+<li>Lazy Expression Evaluation(表达式缓评估) ：避免不必要的数值计算动作</li>
+</ul>
+<h2 id="分期摊还预期的计算成本。">分期摊还预期的计算成本。</h2><p>   超急评估：令他超前进度地做“要求以外”的更多工作。<br>   如果你预期程序常常会用到某个计算，你可以降低每次计算的平均成本，办法就是设计一份数据结构以便能够极有效率地处理需求。<br>  Catching和prefetching(预先取出)都是其中的案例。<br>  但是较佳往往导致较大的内存成本。</p>
+<h2 id="了解临时对象的来源">了解临时对象的来源</h2><p>　　C++中真正的临时对象时不可见的，由编译器隐式调用生成。一般而言，函数调用时隐式转换和函数返回对象时会生成这类对象。<br>你可以声明reference-to-const避免这类问题。</p>
+<h2 id="协助完成返回值优化（RVO)">协助完成返回值优化（RVO)</h2><p>　　编译器在返回对象时，可以执行返回值优化。<br>‘’’<br>const TestClass operator+(const TestClass &amp;lhs, const TestClass &amp;rhs) {<br>  return TestClass(lhs.val + rhs.val);<br>}<br>‘’’</p>
+<h2 id="利用重载技术避免隐式类型转换">利用重载技术避免隐式类型转换</h2><p>　　每个重载操作符必须获得至少一个用户定制的自变量，我们可以通过提供多种参数的重载函数避免临时对象的生成。</p>
+<h2 id="考虑以操作符复合形式取代其独身形式">考虑以操作符复合形式取代其独身形式</h2><p>　　我们一般使用复合形式来实现operator的单一版本，单一版本需要返回一个新对象，而复合版本则是直接将结果写入<br>其左端自变量，不需要产生一个临时对象来放置返回值。</p>
+<h2 id="考虑使用其他程序库">考虑使用其他程序库</h2><p>　　C++的IO操作比C的慢很多，可以视情况选择合适的程序库。</p>
+<h2 id="了解virtual_functions,_multiple_inheritance,_virtual_base_class,_runtime_type_identification的成本">了解virtual functions, multiple inheritance, virtual base class, runtime type identification的成本</h2><p>　　vtbl和vptr需要额外的内存空间，换页动作由此受到影响。虚函数本身并不构成性能上的瓶颈，真正运行时期成本发生在inlining互动的时候。<br>多重继承往往导致virtual base classes虚拟基类的需要，这可能导致对象内的隐式指针增加。RTTI让我们在运行时期获得objects和classes的<br>相关信息，需要空间存储type_info信息，使用typeud去获得class的对应type_info，type_info放在vtbl中。</p>
+<hr>
+<h1 id="技术">技术</h1><h2 id="将constructor_和_non-member_functions虚化">将constructor 和 non-member functions虚化</h2><p>　　virtual constructo是某种函数，视其获得的输入，可产生不同类型对象。从磁盘或者磁带读取对象信息经常被用到。</p>
+<p>virtual copy constructor返回一个指针，指向其调用者的一个新副本，通常以clone()命名（Prototypee）。<br>当derived class重新定义其base class的一个虚函数时，不再需要一定得声明与原来相同的返回类型。<br>‘’’<br>class Base {<br>  virtual Base * clone() const = 0;<br>};</p>
+<p>class A : public Base {<br>  virtual A <em> clone() const {<br>    return new A(</em>this);<br>  }<br>};</p>
+<p>class B : public Base {<br>  virtual B <em> clone() const {<br>    return new B(</em>this);<br>  }<br>};</p>
+<p>‘’’</p>
+<p>non-member functions的虚化：写一个虚函数做实际工作，再写一个什么都不做的非虚函数，只负责调用函数。</p>
+<p>‘’’<br>class Base {<br>  virtual ostream &amp; print(ostream &amp;s) const = 0;<br>};</p>
+<p>class A : public Base {<br>  virtual ostream &amp; print(ostream &amp;s) const;<br>};</p>
+<p>class B : public Base {<br>  virtual ostream &amp; print(ostream &amp;s) const;<br>};<br>inline ostream &amp;operator &lt;&lt; (ostream &amp;s, const Base &amp;b) {<br>  return b.print(s);<br>}</p>
+<p>‘’’</p>
+<h2 id="限制某个class所能产生的对象数量">限制某个class所能产生的对象数量</h2><ul>
+<li><p>允许零个或一个对象<br>阻止对象生成，只要将constructors声明为private，而利用单例模式static操作则可以生成一个对象。</p>
+</li>
+<li><p>不同的对象构造状态</p>
+</li>
+<li><p>允许对象生生灭灭</p>
+</li>
+<li><p>一个用来计算对象个数的base class</p>
+</li>
+</ul>
+<h2 id="要求或禁止对象产生于heap之中">要求或禁止对象产生于heap之中</h2><ul>
+<li><p>要求对象产生于heap之中（head-based objects)<br>让destrutor成为private,而constructors为public,导入一个伪destructor函数调用真正的private。</p>
+</li>
+<li><p>判断某个对象是否位于heap中</p>
+</li>
+<li><p>禁止对象产生于heap之中<br>对象被直接实例化，对象被实例化为derived class objects内的base classes成分，对象被内嵌于其他对象之中。</p>
+</li>
+</ul>
+<h2 id="智能指针">智能指针</h2><h2 id="proxy_classes代理类">proxy classes代理类</h2><p>　　用来代表其他对象的对象，称为proxy objects（替身对象）,而用以表现proxy objects者，我们称为proxy classes。</p>
+<hr>
+<h1 id="杂项讨论">杂项讨论</h1><h2 id="在未来时态下发展程序">在未来时态下发展程序</h2><p>　　好的软件对于变化有良好的适应能力。</p>
+<ul>
+<li>以C++本身(而非只是注释或说明文件)来表现各种规范</li>
+<li>避免”demand-paged”式的虚函数</li>
+<li>为每一个class处理assignment和copy construction动作</li>
+<li>努力让classes的操作符和函数拥有自然的语法和直观的语义</li>
+<li>让classes容易被正确使用，不容易被误用</li>
+<li>努力写出可移植代码</li>
+<li>设计你的代码，使：“系统改变所带来的冲击”得以局部化</li>
+<li>提供完整的classes,即使某些部分目前用不到</li>
+<li>设计你的接口，使有利于共同的操作行为，阻止共同的错误</li>
+<li>尽量使你的代码一般化，除非有不良的巨大后果</li>
+</ul>
+<h2 id="将非尾端类（non-leaf_classes）设计为抽象类">将非尾端类（non-leaf classes）设计为抽象类</h2><p>　　让原来的继承base类成为子类，添加一个抽象基类，这样做可达到允许同型赋值，部分赋值和异型赋值都被禁止的功能。<br>我们可以将其中的virtual destrutor函数声明为纯虚函数来避免提供一个不适合的纯虚接口，这个纯虚析构函数必须被定义，<br>因为derived classes在析构时会调用base classes的析构函数。<br>　　抽象基类降低了“企图以多态方式对待数组”的机会，让operator=的行为更容易被了解。强迫你明白认知有用之抽象性质的<br>存在。只有在原有的具体类被当做基类使用，才强迫导入一个新的抽象类。<br> 　　当你需要扩展一个程序库而又不能修改代码时，只有少数可行的选择：</p>
+<ul>
+<li>将你的具体类派生自既存的具体类</li>
+<li>试着在程序库的继承体系中找到一个更高层的抽象类</li>
+<li>以“你所希望继承的那个程序库类”来实现自己的新类，将程序库类对象作为新类的member</li>
+<li><p>写一些non-member functions以供应你希望加入class内部去的机能</p>
+<h2 id="如何在同一个程序中结合C++和C">如何在同一个程序中结合C++和C</h2></li>
+</ul>
+<ul>
+<li>Name Mangling（名称重整）<br>　　Name Mangling是一种程序，通过它C++编译器为程序内的每一个函数编出独一无二的名称，在C中没有重载所以不需要此操作。<br>要抑制Name Mangling需要使用C++的extern “C”的命令，它是一个叙述，说明修饰的部分应该以C语言的方式调用。如果需要同时<br>处理C和C++的使用，可以采用预处理器符号__cplusplus, 这个符号只针对C++才用定义.</li>
+</ul>
+<p>‘’’<br>//如果在C++环境中我们使用C编译方式</p>
+<p>#ifdef __cplusplus<br>extern “C” {</p>
+<p>#endif</p>
+<p>// code</p>
+<p>#ifdef __cplusplus<br>}</p>
+<p>#endif</p>
+<p>‘’’</p>
+<ul>
+<li>Statics的初始化<br>　　stait class对象，全局对象，namespace内的对象以及文件范围内的对象，其constructor总在main以前得到执行。<br>而static initialization产生对象的destructors在main调用后。为了使得main是程序起点，很多编译器在main开始出安插<br>一个函数调用的特殊函数完成static initialization.<br>　　尽量使用C++编写main函数，可以调用的命名mian函数进行实际的操作,这样可以保证static的构造和析构被合理调用。<br>‘’’<br>extern “C”<br>int realMain(int argc, char *argv[]);</li>
+</ul>
+<p>int main(int argc, char *argv[]) {<br>  return realMain(argc, argv);<br>}<br>‘’’</p>
+<ul>
+<li><p>动态分配内存<br>　　C++使用new和delete， C使用malloc和free进行内存分配，char <em>strdup（const char </em>ps)这个函数的内存分配就会<br>根据不同的调用采取不同的内存分配方式，所以尽量避免调用标准程序库外的函数。</p>
+</li>
+<li><p>数据结构的兼容性<br>　　在C和C++之间对数据结构做双向交流，应该是安全的，前提是那些结构的定义式在C和C++中都可编译。</p>
+</li>
+</ul>
+<h2 id="让自己习惯于标准C++语言">让自己习惯于标准C++语言</h2><p>　　</p>
 
   
 </div>
