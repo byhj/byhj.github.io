@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 10px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a> <a href="/tags/Vulkan/" style="font-size: 10px;">Vulkan</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/Cocos2dx/" style="font-size: 10px;">Cocos2dx</a> <a href="/tags/D3D/" style="font-size: 12.5px;">D3D</a> <a href="/tags/D3D12/" style="font-size: 12.5px;">D3D12</a> <a href="/tags/Direct3D/" style="font-size: 10px;">Direct3D</a> <a href="/tags/DirectX/" style="font-size: 15px;">DirectX</a> <a href="/tags/GUI/" style="font-size: 10px;">GUI</a> <a href="/tags/Math/" style="font-size: 12.5px;">Math</a> <a href="/tags/OGRE/" style="font-size: 10px;">OGRE</a> <a href="/tags/OpenGL/" style="font-size: 20px;">OpenGL</a> <a href="/tags/OpenGL-GLSL/" style="font-size: 10px;">OpenGL GLSL</a> <a href="/tags/Pattern/" style="font-size: 10px;">Pattern</a> <a href="/tags/Qt静态编译-MSVC/" style="font-size: 10px;">Qt静态编译-MSVC</a> <a href="/tags/Vulkan/" style="font-size: 10px;">Vulkan</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,59 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-OpenGLES-Android" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/20/OpenGLES-Android/" class="article-date">
+  	<time datetime="2015-12-20T13:03:18.000Z" itemprop="datePublished">2015-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/20/OpenGLES-Android/">OpenGLES-Android</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+    
+    
+  
+</div>
+
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-DesignPattern" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -481,10 +534,10 @@
 
 
   
-    <article id="post-AgileSoftwareDevelopment" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MoreEffectiveC++" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/17/AgileSoftwareDevelopment/" class="article-date">
+      <a href="/2015/12/17/MoreEffectiveC++/" class="article-date">
   	<time datetime="2015-12-17T13:11:28.000Z" itemprop="datePublished">2015-12-17</time>
 </a>
     </div>
@@ -498,7 +551,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/AgileSoftwareDevelopment/">敏捷软件开发：原则 ，模式和实践</a>
+      <a class="article-title" href="/2015/12/17/MoreEffectiveC++/">More Effective C++总结</a>
     </h1>
   
 
@@ -508,10 +561,7 @@
     
     <div class="article-entry" itemprop="articleBody">
   
-    
-    <h1 id="敏捷设计">敏捷设计</h1><hr>
-<hr>
-
+    <h1 id="基础议题">基础议题</h1><h2 id="仔细区别pointers和references">仔细区别pointers和references</h2><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定<br>使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，<br>而reference总是指向（代表）它最初获得的那个对象。在实现某些操作符，例如operator[], 使用reference能够比较自然得到<br>“被当做assignment赋值对象”的功能。</p>
   
 </div>
 
@@ -525,6 +575,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/17/MoreEffectiveC++/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -607,6 +661,65 @@
 
 
   
+    <article id="post-AgileSoftwareDevelopment" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/17/AgileSoftwareDevelopment/" class="article-date">
+  	<time datetime="2015-12-17T13:11:28.000Z" itemprop="datePublished">2015-12-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/17/AgileSoftwareDevelopment/">敏捷软件开发：原则 ，模式和实践</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+  
+    
+    <h1 id="敏捷设计">敏捷设计</h1><hr>
+<hr>
+
+  
+</div>
+
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-C++ObjectModel" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -661,127 +774,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/12/17/C++ObjectModel/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-MoreEffectiveC++" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/17/MoreEffectiveC++/" class="article-date">
-  	<time datetime="2015-12-17T13:11:28.000Z" itemprop="datePublished">2015-12-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/MoreEffectiveC++/">More Effective C++总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="基础议题">基础议题</h1><h2 id="仔细区别pointers和references">仔细区别pointers和references</h2><p>Pointers和references在某些方面做着同样的事情，但两者还是有所区别：<br>　　没有null reference但是有null pointers，reference总是代表着某个对象，是另一个对象的别名，reference的这一语法特定<br>使得在使用reference之前不需要测试其有效性，在一定程度上提高了效率。在另一方面，pointers可以被重新赋值，指向另一个对象，<br>而reference总是指向（代表）它最初获得的那个对象。在实现某些操作符，例如operator[], 使用reference能够比较自然得到<br>“被当做assignment赋值对象”的功能。</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/17/MoreEffectiveC++/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Cocos2dx-AndroidStudio" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/16/Cocos2dx-AndroidStudio/" class="article-date">
-  	<time datetime="2015-12-16T13:26:37.000Z" itemprop="datePublished">2015-12-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/16/Cocos2dx-AndroidStudio/">Cocos2dx-AndroidStudio</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="1-简介">1.简介</h1><p>   本文主要简单介绍Cocos2dx中怎么使用AndroidStudio开发.</p>
-<h1 id="2-测试环境">2.测试环境</h1><p>Windows10<br>Cocos2dx3.9<br>AndroidStudio1.3.2</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cocos2dx/">Cocos2dx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/16/Cocos2dx-AndroidStudio/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
