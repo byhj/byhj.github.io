@@ -5,15 +5,16 @@
   
   <title>byhj zzZ~~~</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="在使用Linux的时候，如果您通过ls –l / 就会发现，在/下包涵很多的目录，比如etc、usr、var、bin … … 等目录，而在这些目录中，我们进去看看，发现也有很多的目录或文件。文件系统在Linux下看上去就象树形结构，所以我们可以把文件系统的结构形象的称为 树形结构。文件系统的是用来组织和排列文件存取的，所以她是可见的，在Linux中，我们可以通过ls等工具来查看其结构，在Linux">
+<meta property="og:type" content="article">
 <meta property="og:title" content="byhj zzZ~~~">
-<meta property="og:url" content="http://byhj.github.io/index.html">
+<meta property="og:url" content="http://byhj.github.io/2016/05/06/Linux-Dir/index.html">
 <meta property="og:site_name" content="byhj zzZ~~~">
-<meta property="og:description">
+<meta property="og:description" content="在使用Linux的时候，如果您通过ls –l / 就会发现，在/下包涵很多的目录，比如etc、usr、var、bin … … 等目录，而在这些目录中，我们进去看看，发现也有很多的目录或文件。文件系统在Linux下看上去就象树形结构，所以我们可以把文件系统的结构形象的称为 树形结构。文件系统的是用来组织和排列文件存取的，所以她是可见的，在Linux中，我们可以通过ls等工具来查看其结构，在Linux">
+<meta property="og:updated_time" content="2016-05-06T13:38:32.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="byhj zzZ~~~">
-<meta name="twitter:description">
+<meta name="twitter:description" content="在使用Linux的时候，如果您通过ls –l / 就会发现，在/下包涵很多的目录，比如etc、usr、var、bin … … 等目录，而在这些目录中，我们进去看看，发现也有很多的目录或文件。文件系统在Linux下看上去就象树形结构，所以我们可以把文件系统的结构形象的称为 树形结构。文件系统的是用来组织和排列文件存取的，所以她是可见的，在Linux中，我们可以通过ls等工具来查看其结构，在Linux">
   
     <link rel="alternative" href="/atom.xml" title="byhj zzZ~~~" type="application/atom+xml">
   
@@ -167,9 +168,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Linux-Dir" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linux-Dir" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/05/06/Linux-Dir/" class="article-date">
@@ -185,6 +184,11 @@
     
     <div class="article-entry" itemprop="articleBody">
   
+    
+    <div id="toc" class="article-toc">
+      
+      <hr/>
+    </div>
     
     <p>在使用Linux的时候，如果您通过ls –l / 就会发现，在/下包涵很多的目录，比如etc、usr、var、bin … … 等目录，而在这些目录中，我们进去看看，发现也有很多的目录或文件。文件系统在Linux下看上去就象树形结构，所以我们可以把文件系统的结构形象的称为 树形结构。<br>文件系统的是用来组织和排列文件存取的，所以她是可见的，在Linux中，我们可以通过ls等工具来查看其结构，在Linux系统中，我们见到的都是树形结构；比如操作系统安装在一个文件系统中，他表现为由/ 起始的树形结构。linux文件系统的最顶端是/，我们称/为Linux的root，也就是 Linux操作系统的文件系统。Linux的文件系统的入口就是/，所有的目录、文件、设备都在/之下，/就是Linux文件系统的组织者，也是最上级的领导者。<br>由于linux是开放源代码，各大公司和团体根据linux的核心代码做各自的操作，编程。这样就造成在根下的目录的不同。这样就造成个人不能使用他人的linux系统的PC。因为你根本不知道一些基本的配置，文件在哪里。。。这就造成了混乱。这就是FHS（Filesystem Hierarchy Standard ）机构诞生的原因。该机构是linux爱好者自发的组成的一个团体，主要是是对linux做一些基本的要求，不至于是操作者换一台主机就成了linux的‘文盲’。<br>根据FHS(<a href="http://www.pathname.com/fhs/)的官方文件指出，" target="_blank" rel="external">http://www.pathname.com/fhs/)的官方文件指出，</a> 他们的主要目的是希望让使用者可以了解到已安装软件通常放置于那个目录下， 所以他们希望独立的软件开发商、操作系统制作者、以及想要维护系统的用户，都能够遵循FHS的标准。 也就是说，FHS的重点在于规范每个特定的目录下应该要放置什么样子的数据而已。 这样做好处非常多，因为Linux操作系统就能够在既有的面貌下(目录架构不变)发展出开发者想要的独特风格。<br>事实上，FHS是根据过去的经验一直再持续的改版的，FHS依据文件系统使用的频繁与否与是否允许使用者随意更动， 而将目录定义成为四种交互作用的形态，用表格来说有点像底下这样：<br>可分享的(shareable)<br>不可分享的(unshareable)<br>不变的(static)<br>/usr (软件放置处)<br>/etc (配置文件)<br>/opt (第三方协力软件)<br>/boot (开机与核心档)<br>可变动的(variable)<br>/var/mail (使用者邮件信箱)<br>/var/run (程序相关)<br>/var/spool/news (新闻组)<br>/var/lock (程序相关)<br>四中类型:</p>
 <ol>
@@ -202,571 +206,62 @@
 </div>
 
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/02/GLSL(Built-in Variable)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GLSL内置变量</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-GLSL(Built-in Variable)" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/02/GLSL(Built-in Variable)/" class="article-date">
-  	<time datetime="2016-05-02T13:11:28.000Z" itemprop="datePublished">2016-05-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/02/GLSL(Built-in Variable)/">GLSL内置变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <p>　  GLSL定义了许多内置变量，这些变量一般被用于固定管线的运算，这里主要介绍下各个变量的内容与用法。</p>
-<h1 id="Vertex_shader_inputs">Vertex shader inputs</h1><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">in</span> <span class="keyword">int</span> <span class="built_in">gl_VertexID</span>;</span><br><span class="line"><span class="keyword">in</span> <span class="keyword">int</span> <span class="built_in">gl_InstanceID</span>;</span><br></pre></td></tr></table></figure>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL-GLSL/">OpenGL GLSL</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/02/GLSL(Built-in Variable)/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Vulkan-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/13/Vulkan-Introduction/" class="article-date">
-  	<time datetime="2016-04-13T02:27:26.000Z" itemprop="datePublished">2016-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/13/Vulkan-Introduction/">Vulkan</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    
-    <a id="more"></a>
-<h1 id="Devices_and_Queues">Devices and Queues</h1><hr>
-<h1 id="Command_Buffers">Command Buffers</h1><hr>
-<h1 id="Synchronmization">Synchronmization</h1><hr>
-<h1 id="Render_pass">Render pass</h1><hr>
-<h1 id="Shaders">Shaders</h1><hr>
-<h1 id="Pipelines">Pipelines</h1><hr>
-<h1 id="Memory_allocation">Memory allocation</h1><hr>
-<h1 id="Resource_Creation">Resource Creation</h1>
-  
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
 
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vulkan/">Vulkan</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
 
-
-
-
-
-
-  
-    <article id="post-QT-static" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/22/QT-static/" class="article-date">
-  	<time datetime="2016-01-22T02:26:45.000Z" itemprop="datePublished">2016-01-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/22/QT-static/">QT-static</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="Introduction">Introduction</h1><h1 id="Content">Content</h1><p>安装python, perl, ruby.<br>打开对应版本的开发人员命令提示， cd到Qt目录执行环境设置。</p>
-  
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Linux-Dir" data-title="" data-url="http://byhj.github.io/2016/05/06/Linux-Dir/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
 </div>
 
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt静态编译-MSVC/">Qt静态编译-MSVC</a></li></ul>
-	</div>
 
-      
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/22/QT-static/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
-
-
-
-
-
-
-  
-    <article id="post-OpenGL-Math" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/OpenGL-Math/" class="article-date">
-  	<time datetime="2015-12-25T03:08:14.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/OpenGL-Math/">OpenGL-Math</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="Introduction">Introduction</h1><p>　　主要介绍怎么使用glm开源项目作为OpenGL程序的Math库.</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/25/OpenGL-Math/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-OpenGL-Debug" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/OpenGL-Debug/" class="article-date">
-  	<time datetime="2015-12-25T03:07:19.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/OpenGL-Debug/">OpenGL-Debug</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    
-    
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-GLFW3-AntTweakBar" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/GLFW3-AntTweakBar/" class="article-date">
-  	<time datetime="2015-12-25T02:27:26.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/GLFW3-AntTweakBar/">在GLFW3中使用AntTweakBar</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="Introduction">Introduction</h1><p>　　本文主要介绍怎么在GLFW3中使用AntTweakBar吗，旧版本的GLFW使用在AntTweakBar的Example中<br>已经有了，所以在这里不作介绍。注意，程序是在OpenGL-Framework里面介绍的代码为基础的，如果有不了解的<br>地方，请先阅读那一篇教程.</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/25/GLFW3-AntTweakBar/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-OpenGL-GLUT" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/OpenGL-GLUT/" class="article-date">
-  	<time datetime="2015-12-25T01:39:51.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/OpenGL-GLUT/">OpenGL-GLUT</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="Introduction">Introduction</h1><p>　　在以前很多项目使用GLUT库创建OpenGL环境，由于GLUT项目已经放弃开发和维护，在这里建议大家使用新的freeglut库。<br>可以在<a href="http://freeglut.sourceforge.net/">freeglut</a>网站下载最新的版本。</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/25/OpenGL-GLUT/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-OpenGL-GLFW" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/OpenGL-GLFW/" class="article-date">
-  	<time datetime="2015-12-25T01:39:32.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/OpenGL-GLFW/">OpenGL-GLFW</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="Introduction">Introduction</h1><p>　　GLFW是一个创建OpenGL环境窗口的开源跨平台程序库，它同时可以处理输入和事件。<br>目前来说，它比OpenGL以前使用的GLUT框架更加成熟和方便。更多信息在<a href="http://www.glfw.org/">GLFW</a><br>的官网有介绍。本文主要简单介绍GLFW的使用。</p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenGL/">OpenGL</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/25/OpenGL-GLFW/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-EffectiveSTL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/24/EffectiveSTL/" class="article-date">
-  	<time datetime="2015-12-24T07:00:23.000Z" itemprop="datePublished">2015-12-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/24/EffectiveSTL/">Effective STL 总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-  
-    <h1 id="容器">容器</h1><p>　  　对于C++而言，容器是比数组功能更强大更灵活的工具，它可以动态增长或缩减，可以自己管理内存，可以自己记住包含了多少对象，它们还限定了自己所支持的操作的复杂性。对于不同情况我们需要选择不同<br>的容器。</p>
-<p>
-  
-</div>
-
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/24/EffectiveSTL/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -790,8 +285,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
