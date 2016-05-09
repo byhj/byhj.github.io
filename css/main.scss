@@ -32,9 +32,10 @@
 //         padding-left: $spacing-unit / 2;
 //     }
 // }
-
+// rgb(71, 174, 212);
 // variables.less
-$theme-primary: rgb(71, 174, 212);
+
+$theme-primary: rgba(34, 34, 34, 1);
 $theme-dark: #222;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
